@@ -1,0 +1,27 @@
+{
+  "name": "thepetstore",
+  "version": "1.0.0",
+  "description": "Online marketplace for pets",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keypuncheralwin/ThePetStore.git"
+  },
+  "author": "Alwin George & Lara Luitingh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keypuncheralwin/ThePetStore/issues"
+  },
+  "homepage": "https://github.com/keypuncheralwin/ThePetStore#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "connect-pg-simple": "^7.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "pg": "^8.7.1"
+  }
+}
