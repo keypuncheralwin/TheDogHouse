@@ -1,2 +1,2 @@
-# ThePetStore
+# TheDogHouse
 Online marketplace for pets
