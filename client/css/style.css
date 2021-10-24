@@ -1,0 +1,21 @@
+body{
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+}
+
+
+#navBar{
+    display: flex;
+    border: black 2px solid;
+}
+
+.navLink{
+    padding: 0 10px;
+}
+
+.navLink:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
