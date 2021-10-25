@@ -19,9 +19,15 @@ function createNav(){
     navBar.append(addPet)
 
     addPet.addEventListener('click', (e) => {
-        addPetForm()
-        
-        
+        addPetForm()  
+    })
+
+    signUp.addEventListener('click', (e) => {
+        signUpForm()  
+    })
+
+    login.addEventListener('click', (e) => {
+        loginForm()
     })
 
 
