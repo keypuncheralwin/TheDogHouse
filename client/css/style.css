@@ -4,6 +4,9 @@ body{
     justify-content: center;
 }
 
+#wrapper{
+    border: 2px solid red;
+}
 
 #navBar{
     display: flex;
@@ -19,3 +22,14 @@ body{
     color: white;
     cursor: pointer;
 }
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+fieldset{
+    border: black 2px solid;
+}
+

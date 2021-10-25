@@ -17,5 +17,13 @@ function createNav(){
     addPet.textContent = 'Add a Pet'
     addPet.classList.add('navLink')
     navBar.append(addPet)
+
+    addPet.addEventListener('click', (e) => {
+        addPetForm()
+        
+        
+    })
+
+
 }
 
