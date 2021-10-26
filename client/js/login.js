@@ -1,6 +1,6 @@
 function loginForm(){
-    content=document.getElementById("content")
-    content.innerHTML=""
+    const container=document.getElementById("container")
+    container.innerHTML=""
     const form = document.createElement("form");
     form.innerHTML = `
     <fieldset>
@@ -35,6 +35,6 @@ function loginForm(){
         // axios.post('/api/challenges', data)
       });
 
-    content.append(form)
+      container.append(form)
 
 }
