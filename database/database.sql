@@ -1,10 +1,10 @@
-createdb TheDogHouse
+ createdb TheDogHouse
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY UNIQUE NOT NULL,
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    state_code VARCHAR(6) NOT NULL,
+    state_code TEXT NOT NULL,
     fact TEXT,
     password TEXT NOT NULL
 );
