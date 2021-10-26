@@ -2,6 +2,7 @@ function addPetForm() {
   const content = document.getElementById('content')
   content.classList.add('addPetBackground')
   const container = document.getElementById('container')
+  container.innerHTML="";
   const addPet = document.createElement("form");
   addPet.innerHTML = `
   <h2 id="addDogHeader" >Let's find your dog a loving home!</h2>
