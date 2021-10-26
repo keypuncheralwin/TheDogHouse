@@ -1,35 +1,56 @@
 
 function createNav(){
-    const navBar = document.getElementById('navBar')
+    const mainMenu = document.querySelector('.mainMenu')
+    console.log(mainMenu)
     
-    
-    const signUp = document.createElement('div')
+    const signUp = document.createElement('li')
     signUp.textContent = 'Sign Up'
-    signUp.classList.add('navLink')
-    navBar.append(signUp)
+    mainMenu.append(signUp)
     
-    const login = document.createElement('div')
+    const login = document.createElement('li')
     login.textContent = 'Login'
-    login.classList.add('navLink')
-    navBar.append(login)
+    mainMenu.append(login)
     
-    const addPet = document.createElement('div')
+    const addPet = document.createElement('li')
     addPet.textContent = 'Add a Pet'
-    addPet.classList.add('navLink')
-    navBar.append(addPet)
+    mainMenu.append(addPet)
 
     addPet.addEventListener('click', (e) => {
-        addPetForm()  
+
+        close()
+        addPetForm()
+        
+         
     })
 
     signUp.addEventListener('click', (e) => {
+        close()
         signUpForm()  
     })
 
     login.addEventListener('click', (e) => {
+        close()
         loginForm()
+
     })
 
 
 }
 
+const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+
+
+
+
+openMenu.addEventListener('click',show);
+closeMenu.addEventListener('click',close);
+
+function show(){
+    mainMenu.style.display = 'flex';
+    mainMenu.style.top = '0';
+}
+function close(){
+    mainMenu.style.top = '-100%';
+}

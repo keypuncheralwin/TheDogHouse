@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="./css/backgrounds.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"/>
     <link href="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
@@ -10,21 +15,35 @@
     <script defer src="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/uppy.js"></script>
-    <script src="./js/navbar.js"></script>
+    <script defer src="./js/navbar.js"></script>
     <script src="./js/breed.js"></script>
     <script src="./js/addPet.js"></script>
+
     <script src="./js/signup.js"></script>
     <script src="./js/login.js"></script>
 
     
     <script defer src="./js/index.js"></script>
 </head>
+
 <body>
     <div id="wrapper">
-    <h1>The Dog House</h1>
-    <div id="navBar"></div>
-    <div id="content"></div>
+    <div id="header">
+        <nav>
+            <div class="logo"><h1>The Dg House</h1></div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+                <div class="closeMenu"><i class="fa fa-times"></i></div>
+            </ul>
+        </nav>
+    
+    </div>
+    <div id="content">
+        <div id="container">
+        </div>
+    </div>
     <div id="footer"></div>
 </div>
 </body>
+
 </html>
