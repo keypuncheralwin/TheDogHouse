@@ -3,21 +3,17 @@ function loginForm(){
     container.innerHTML=""
     const form = document.createElement("form");
     form.innerHTML = `
-    <fieldset>
-    <p id='error'></p>
-      <label for="email">Email</label><br>
-      <input type="text" name="email">
-    </fieldset>
-    <fieldset>
-    <label for="password">Password</label><br>
-    <input type="password" name="password">
-  </fieldset>
+    <h1 class="largeFont">Login</h1>
+    <div id="status"><br></div>
+    <input type="text" name="email" class="feedback-input" placeholder="Email" required>
+    <input type="password" name="password" class="feedback-input" placeholder="Password" required>
+  
     <input type="submit">
     `;
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        // const data = {name: "Katie"}
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries())
     

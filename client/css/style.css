@@ -15,12 +15,11 @@ body{
     display: grid; 
     height: 100vh;
   grid-template-columns: 1fr; 
-  grid-template-rows: 0.2fr 2.4fr 0.2fr; 
+  grid-template-rows: 0.2fr 2.4fr; 
   gap: 0px 0px; 
   grid-template-areas: 
     "header"
     "content"
-    "footer"; 
 }
 
 #header{
@@ -38,9 +37,4 @@ body{
     place-items: center;
 }
 
-
-#footer{
-    grid-area: footer;
-    background: #003049;
-}
 
