@@ -18,6 +18,7 @@ const errorHandler = require('./middleware/error')
 const logMiddleware = require('./middleware/logger');
 
 
+
 const app = express();
 const port = 3000;
 
@@ -41,6 +42,8 @@ app.use(express.json());
 app.use("/api/sessions", sessionController);
 
 app.use("/api/pets", petsController);
+
+
 
 
 app.use(errorHandler)

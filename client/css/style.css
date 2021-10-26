@@ -1,35 +1,46 @@
 body{
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-}
-
-#wrapper{
-    border: 2px solid red;
-}
-
-#navBar{
-    display: flex;
-    border: black 2px solid;
-}
-
-.navLink{
-    padding: 0 10px;
-}
-
-.navLink:hover{
     background-color: black;
     color: white;
-    cursor: pointer;
 }
 
-legend {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 6px;
+@font-face {
+    font-family: 'GoodBoy';
+    src: url(../fonts/GoodBoy.ttf);
 }
 
-fieldset{
-    border: black 2px solid;
+
+#wrapper {
+    margin:0;
+    padding: 0;
+    display: grid; 
+    height: 100vh;
+  grid-template-columns: 1fr; 
+  grid-template-rows: 0.2fr 2.4fr 0.2fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "header"
+    "content"
+    "footer"; 
+}
+
+#header{
+    grid-area: header;
+    background: #003049;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#content{
+    background-color: #22223b;
+    display: grid;
+    place-items: center;
+}
+
+
+#footer{
+    grid-area: footer;
+    background: #003049;
 }
 

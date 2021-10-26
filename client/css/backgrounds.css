@@ -1,0 +1,16 @@
+
+.addPetBackground{
+    background: url("../images/backgrounds/petHome.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.uppy-Dashboard-inner{
+    border: 2px solid #e76f51;
+}
+
+.uppy-Dashboard{
+    background-color: #e76f51;
+}
