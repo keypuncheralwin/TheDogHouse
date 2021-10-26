@@ -5,7 +5,7 @@ function addPetForm() {
   container.innerHTML="";
   const addPet = document.createElement("form");
   addPet.innerHTML = `
-  <h2 id="addDogHeader" >Let's find your dog a loving home!</h2>
+  <h1 class="largeFont">Let's find your dog a loving home!</h1>
   <div id="status"><br></div> 
   <div class="align">
   <input id="name" name="name" type="text" class="feedback-input" placeholder="Name" />   
@@ -27,6 +27,17 @@ function addPetForm() {
       <option value="Senior">Female</option>
       </select>
       </div>
+
+      <select name="state_code_dog" id="state_code_dog" class="feedback-input" required>
+      <option value="">Select State</option>
+      <option value="NSW">NSW</option>
+      <option value="QLD">QLD</option>
+      <option value="SA">SA</option>
+      <option value="TAS">TAS</option>
+      <option value="VIC">VIC</option>
+      <option value="WA">WA</option>
+      </select>
+  
   <div id="drag-drop-area"></div>
   <textarea name="description" class="feedback-input" placeholder="description" required></textarea>  
       

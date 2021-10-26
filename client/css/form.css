@@ -13,7 +13,7 @@ textarea:-moz-placeholder {
     color:white;
 }
 
-#addDogHeader{
+.largeFont{
     text-align: center;
     
     font-family: 'Concert One', cursive;

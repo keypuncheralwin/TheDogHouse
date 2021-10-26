@@ -24,7 +24,7 @@ CREATE TABLE pet(
     breed TEXT NOT NULL,
     age TEXT NOT NULL,
     gender TEXT NOT NULL,
-    color TEXT NOT NULL,
+    state_code TEXT NOT NULL,
     description TEXT NOT NULL,
     image TEXT NOT NULL,
     price INTEGER NOT NULL,

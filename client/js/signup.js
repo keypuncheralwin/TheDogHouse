@@ -4,30 +4,29 @@ function signUpForm(){
   container.innerHTML="";
   const form = document.createElement("form");
   form.innerHTML = `
-  <fieldset>
-  <p id='error'></p>
-    <label for="name">Name</label><br>
-    <input type="text" name="name">
-  </fieldset>
-  <fieldset>
-  <label for="email">Email</label><br>
-  <input type="text" name="email">
-</fieldset>
-<fieldset>
-  <label for="state_code">State</label><br>
-  <input type="text" name="state_code">
-</fieldset>
-<fieldset>
-  <label for="fact">Tell us a funny dog joke</label><br>
-  <input type="text" name="fact">
-</fieldset>
-  <fieldset>
-    <label for="password">password</label><br>
-    <input type="password" name="password">
-  </fieldset>
+  <h1 class="largeFont">Let's get you signed up!</h1>
+  <div id="status"><br></div>
+    <input type="text" name="name" class="feedback-input" placeholder="Full Name" required>  
+  <input type="text" name="email" class="feedback-input" placeholder="Email" required>
+  <select name="state_code" id="state_code" class="feedback-input" required>
+      <option value="">Select State</option>
+      <option value="NSW">NSW</option>
+      <option value="QLD">QLD</option>
+      <option value="SA">SA</option>
+      <option value="TAS">TAS</option>
+      <option value="VIC">VIC</option>
+      <option value="WA">WA</option>
+      </select>
+  <select name="breed" id="fact" class="feedback-input" required>
+  <option value="">Select your favourite dog breed</option>      
+  </select>
+  <input type="password" name="password" class="feedback-input" placeholder="Enter a password" required>
+  <input type="password" name="passwordConfirm" class="feedback-input" placeholder="Confirm you password" required>
+  
   <input type="submit">
   `;
 
+  
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -56,4 +55,6 @@ form.addEventListener("submit", (event) => {
   });
 
   container.append(form)
+  const fact = document.getElementById('fact')
+  populateBreed(fact)
 }
