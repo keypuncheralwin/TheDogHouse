@@ -16,10 +16,22 @@ function createNav(){
     mainMenu.append(addPet)
 
     addPet.addEventListener('click', (e) => {
+
         close()
         addPetForm()
         
-        
+         
+    })
+
+    signUp.addEventListener('click', (e) => {
+        close()
+        signUpForm()  
+    })
+
+    login.addEventListener('click', (e) => {
+        close()
+        loginForm()
+
     })
 
 
