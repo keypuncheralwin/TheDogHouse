@@ -1,6 +1,6 @@
 function signUpForm(){
-  content=document.getElementById("content")
-  content.innerHTML="";
+  const container=document.getElementById("container")
+  container.innerHTML="";
   const form = document.createElement("form");
   form.innerHTML = `
   <fieldset>
@@ -54,5 +54,5 @@ form.addEventListener("submit", (event) => {
     // axios.post('/api/challenges', data)
   });
 
-  content.append(form)
+  container.append(form)
 }
