@@ -1,4 +1,5 @@
 function signUpForm(){
+
   const container =document.getElementById("container")
   container.innerHTML="";
   const form = document.createElement("form");
