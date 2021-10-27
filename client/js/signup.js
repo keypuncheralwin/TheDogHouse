@@ -17,7 +17,7 @@ function signUpForm(){
       <option value="VIC">VIC</option>
       <option value="WA">WA</option>
       </select>
-  <select name="breed" id="fact" class="feedback-input" required>
+  <select name="fact" id="fact" class="feedback-input" required>
   <option value="">Select your favourite dog breed</option>      
   </select>
   <input type="password" name="password" class="feedback-input" placeholder="Enter a password" required>
@@ -32,12 +32,6 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     // const data = {name: "Katie"}
     const formData = new FormData(form);
-    console.log(formData);
-    challengeName = formData.get("name");
-    state= formData.get("state_code");
-    console.log(state)
-
-    console.log(challengeName)
     const data = Object.fromEntries(formData.entries())
 
     console.log(data)
@@ -47,11 +41,10 @@ form.addEventListener("submit", (event) => {
         console.log("do this")
         console.log("succes")
     }).catch(err=>{
-        document.getElementById('error').textContent=err.response.data.message
+        document.getElementById('status').textContent=err.response.data.message
 
     });
 
-    // axios.post('/api/challenges', data)
   });
 
   container.append(form)

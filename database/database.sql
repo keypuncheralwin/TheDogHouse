@@ -11,14 +11,11 @@ CREATE TABLE users(
 
 CREATE TABLE favorites(
     user_id INTEGER NOT NULL REFERENCES users(id),
-    pet_id  INTEGER NOT NULL REFERENCES pet(id)
+    dog_id  INTEGER NOT NULL REFERENCES dog(id)
 );
 
-Puppy
-Adult 
-Senior 
 
-CREATE TABLE pet(
+CREATE TABLE dogs(
     id SERIAL PRIMARY KEY UNIQUE NOT NULL,
     name TEXT NOT NULL,
     breed TEXT NOT NULL,
@@ -31,8 +28,3 @@ CREATE TABLE pet(
     user_id INTEGER NOT NULL REFERENCES users(id)
 );
 
-
-CREATE TABLE pet_location(
-   state_code VARCHAR(6) NOT NULL,
-   pet_id INTEGER NOT NULL REFERENCES pet(id)
-);
