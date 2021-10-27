@@ -5,13 +5,15 @@ const router = express.Router();
 
 
 router.post("/", (req, res) => {
-    const { name, email, state_code, fact, password, passwordConfrim} = req.body
+    const { name, email, state_code, fact, password, passwordConfirm} = req.body
     console.log(name)
     console.log(email)
     console.log(state_code)
     console.log(fact)
     console.log(password)
-    console.log(passwordConfrim)
+    console.log(passwordConfirm)
+
+    console.log(req.body)
 
   if (name.length > 45) {
     return res.status(400).json({ message: "name is too long" });
@@ -23,7 +25,7 @@ router.post("/", (req, res) => {
     return res.status(400).json({ message: "requires a password" });
   } else if (state_code === "" || state_code === undefined) {
     return res.status(400).json({ message: "requires a state" });
-  } else if (password !== passwordConfrim) {
+  } else if (password !== passwordConfirm) {
     return res.status(400).json({ message: "Passwords do not match" });
   } else if (name.length < 17) {
     users
