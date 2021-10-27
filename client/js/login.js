@@ -25,7 +25,9 @@ function loginForm(){
             console.log("succes")
             createNav()
         }).catch(err=>{
+
           document.getElementById('status').textContent=err.response.data.message
+
     
         });
     

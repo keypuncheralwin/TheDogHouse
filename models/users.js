@@ -18,6 +18,12 @@ const users = {
       .then((dbRes) => console.log("succes"));
   },
 
+  findUserId(email) {
+    const sql = "SELECT id FROM users WHERE email= $1";
+    const values = [email];
+    return db.query(sql,values).then((dbRes) => dbRes.rows);
+  },
+
   checkUser(email, password) {
     return findPassword(email).then((res) => {
 

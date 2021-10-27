@@ -4,24 +4,22 @@ const users = require("../models/users");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  const{email, password} =req.body
-
-  if (email === "" || email === undefined) {
-    return res.status(400).json({ message: "Please enter your email" });
-  } else if (password === "" || password === undefined) {
-    return res.status(400).json({ message: "Please enter your password" });
-  }else{
-  users.checkUser(req.body.email, req.body.password).then((isUserValid) => {
-    if (isUserValid) {
-      console.log(isUserValid)
-      req.session.email = req.body.email;
+  const { email, password} = req.body
+  // Get user's name from request, look up in the database, check the password etc.
+  users.checkUser(email, password).then((response) => {
+    if (response) {
+      req.session.email = email;
+      console.log("logged in successfully")
       res.json({ message: "logged in successfully" });
+      
     }else{
-        res.status(400).json({ message: "incorrect login details" });
+    
+      console.log("incorrect login details")
+      return res.status(400).json({ message: "incorrect login details" });
     }
   });
-}
 });
+
 
 router.get("/", (req, res) => {
   // Put this in one of the /api/challenges routes.
@@ -43,3 +41,4 @@ router.delete("/", (req, res) => {
 
 
 module.exports = router;
+
