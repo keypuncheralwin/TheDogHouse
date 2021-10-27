@@ -1,8 +1,6 @@
 const express = require("express");
 const users = require("../models/users");
 
-const Users = require("../models/users");
-
 const router = express.Router();
 
 router.post("/", (req, res) => {
@@ -24,5 +22,24 @@ router.post("/", (req, res) => {
   });
 }
 });
+
+router.get("/", (req, res) => {
+  // Put this in one of the /api/challenges routes.
+  if (!req.session.email) {
+    // 403 means "forbidden"
+    res.status(400).json({ message: "Not logged in" });
+  } else {
+    // res.json({ username: req.session.email });
+    users.getUserByEmail(req.session.email).then((user)=>{
+       res.json(user)
+    })
+  }
+});
+
+router.delete("/", (req, res) => {
+    req.session.destroy();
+    res.json({message: "You have logged out"})
+});
+
 
 module.exports = router;

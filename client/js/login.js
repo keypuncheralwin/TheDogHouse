@@ -23,8 +23,9 @@ function loginForm(){
         axios.post(`/api/sessions`, data).then(() => {
             console.log("do this")
             console.log("succes")
+            createNav()
         }).catch(err=>{
-          document.getElementById('error').textContent=err.response.data.message
+          document.getElementById('status').textContent=err.response.data.message
     
         });
     

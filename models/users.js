@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const findPassword = (emailAddress) => {
   return db
     .query("SELECT password FROM users where email=$1", [emailAddress])
-    .then((password) => password.rows[0].password);
+    .then((password) => password.rows);
 };
 
 const users = {
@@ -20,11 +20,22 @@ const users = {
 
   checkUser(email, password) {
     return findPassword(email).then((res) => {
-        value=isValidPassword(password, res)
-        return value
-    //   value=isValidPassword(password, res);
-    //   console.log(value)
+
+      if (res.length === 0) {
+        return false;
+      } else{
+        console.log(res)
+        console.log(res[0].password);
+        value = isValidPassword(password, res[0].password);
+        return value;
+      }
     });
+  },
+
+  getUserByEmail(email) {
+    return db
+      .query("SELECT * FROM users where email= $1", [email])
+      .then((dbRes) => dbRes.rows);
   },
 };
 
