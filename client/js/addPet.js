@@ -2,7 +2,7 @@ function addPetForm() {
   const content = document.getElementById('content')
   content.classList.add('addPetBackground')
   const container = document.getElementById('container')
-  container.innerHTML="";
+  container.innerHTML = "";
   const addPet = document.createElement("form");
   addPet.innerHTML = `
   <h1 class="largeFont">Let's find your dog a loving home!</h1>
@@ -28,7 +28,12 @@ function addPetForm() {
       </select>
       </div>
 
-      <select name="state_code_dog" id="state_code_dog" class="feedback-input" required>
+      <div class="alignCurrency"> 
+      <input type="text" name="currency" id="currency" value="$" size="1" readonly>
+      <input type="number" id="price" class="feedback-input" name="price" placeholder="00.00" step="0.10" min="0" max="100000">
+      </div>
+
+      <select name="state_code" id="state_code_dog" class="feedback-input" required>
       <option value="">Select State</option>
       <option value="NSW">NSW</option>
       <option value="QLD">QLD</option>
@@ -37,34 +42,40 @@ function addPetForm() {
       <option value="VIC">VIC</option>
       <option value="WA">WA</option>
       </select>
+      
   
   <div id="drag-drop-area"></div>
   <textarea name="description" class="feedback-input" placeholder="description" required></textarea>  
       
-    
-      <input type="submit" value="SUBMIT"/> 
+  <input type="submit" value="SUBMIT"/> 
     
     `;
-    container.append(addPet)
+  container.append(addPet)
   const imageUrls = []
   uploadUppy(imageUrls)
   const breedSelection = document.getElementById('breed')
   populateBreed(breedSelection)
   addPet.addEventListener("submit", (event) => {
-      event.preventDefault()
-      const formData = new FormData(addPet)
-      console.log(formData)
-      const data = Object.fromEntries(formData.entries())
-      console.log(data)
-      const status = document.getElementById('status')
-      console.log(imageUrls)
+    event.preventDefault()
+    const formData = new FormData(addPet)
+    const data = Object.fromEntries(formData.entries())
+    console.log(data)
+    const status = document.getElementById('status')
+    console.log(imageUrls)
+    
 
-      // axios.post('/api/challenges', data).then(() => {
-      //     renderHomePage()
-      // }).catch(err => {
-      //     status.textContent = err.response.data.message
-      // })
+    if (imageUrls.length >= 1) {
+      data['imageUrls'] = imageUrls
+      axios.post('/api/pets/add', data).then(() => {
+        console.log('dog added to database')
+      }).catch(err => {
+        status.textContent = err.response.data.message
+      })
+    } else{
+      status.textContent = `Please add at least one photo of ${data.name}`
+    }
+
+
 
   })
 }
-

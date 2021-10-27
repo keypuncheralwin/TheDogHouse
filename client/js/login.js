@@ -24,7 +24,8 @@ function loginForm(){
             console.log("do this")
             console.log("succes")
         }).catch(err=>{
-          document.getElementById('error').textContent=err.response.data.message
+            document.getElementById('status').textContent=err.response.data.message
+
     
         });
     
