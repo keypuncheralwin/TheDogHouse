@@ -32,7 +32,7 @@ body{
 
 
 #content{
-    background-color: #22223b;
+    background-color: white;
     display: grid;
     place-items: center;
 }
