@@ -1,27 +1,22 @@
-// router.get("/", (req, res) => {
-//     // Put this in one of the /api/challenges routes.
-//     if (!req.session.username) {
-//       // 403 means "forbidden"
-//       res.status(403).json({ message: "Not logged in" });
-//     } else {
-//       res.json({ username: req.session.username });
-//     }
-//   });
+const mainMenu = document.querySelector(".mainMenu");
 
-//   router.delete("/", (req, res) => {
-//       req.session.destroy();
-//       res.json({message: "You have logged out"})
-//   });
+const openMenu = document.querySelector(".openMenu");
 
 function createNav() {
-  const mainMenu = document.querySelector(".mainMenu");
-  console.log(mainMenu);
 
   
+ 
+
+
 
   axios.get(`/api/sessions`)
     .then((response) => {
-      mainMenu.innerHTML = "";
+      console.log('user logged in')
+
+      mainMenu.innerHTML = `<div class="closeMenu"><i class="fa fa-times"></i></div>`
+      const closeMenu = document.querySelector(".closeMenu");
+      console.log(mainMenu)
+
 
       const messages = document.createElement("li");
       messages.textContent = "Messages";
@@ -35,9 +30,27 @@ function createNav() {
         close();
         accountForm();
       });
+
+      openMenu.addEventListener("click", show);
+      closeMenu.addEventListener("click", close);
+    
+      function show() {
+        mainMenu.style.display = "flex";
+        mainMenu.style.top = "0";
+      }
+      
+      function close() {
+        mainMenu.style.top = "-100%";
+      }
     })
     .catch((err) => {
-      mainMenu.innerHTML = "";
+      console.log('user not logged in')
+  
+      mainMenu.innerHTML = `<div class="closeMenu"><i class="fa fa-times"></i></div>`
+
+      const closeMenu = document.querySelector(".closeMenu");
+      console.log(mainMenu)
+
 
       const signUp = document.createElement("li");
       signUp.textContent = "Sign Up";
@@ -65,20 +78,26 @@ function createNav() {
         close();
         loginForm();
       });
+
+
+      openMenu.addEventListener("click", show);
+      closeMenu.addEventListener("click", close);
+    
+      function show() {
+        mainMenu.style.display = "flex";
+        mainMenu.style.top = "0";
+      }
+      
+      function close() {
+        mainMenu.style.top = "-100%";
+      }
     });
+
+    
+   
+
+
 }
 
-const mainMenu = document.querySelector(".mainMenu");
-const closeMenu = document.querySelector(".closeMenu");
-const openMenu = document.querySelector(".openMenu");
 
-openMenu.addEventListener("click", show);
-closeMenu.addEventListener("click", close);
 
-function show() {
-  mainMenu.style.display = "flex";
-  mainMenu.style.top = "0";
-}
-function close() {
-  mainMenu.style.top = "-100%";
-}

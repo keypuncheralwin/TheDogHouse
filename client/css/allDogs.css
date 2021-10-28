@@ -6,7 +6,8 @@
 }
 
 .singleDog {
-    
+    border: white 8px solid;
+    position: relative; 
     overflow: hidden;
     margin: 4px;
     border-radius: 0.45em;
@@ -23,23 +24,49 @@
 }
 
 .dogHeader{
-    border: 2px solid white;
-    border-radius: 0.45em;
+    background-color: rgba(255, 255, 255, 0.897);
+    color: #002f49c9;
     font-family: 'Concert One', cursive;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.dogHeader:hover{
+    background-color: #003049;
+    color: white;
+}
+
+.favAlertContainer{
+    background-color: rgba(0, 0, 0, 0.549);
+    font-family: 'Concert One', cursive;
+    color: white;
+    position:absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+
+}
+
+.fav{
+    position: absolute; 
+  top: 10px; 
+  right: 10px;
+  color: orange; 
+}
+
 .dogPrice{
     padding: 16px;
 }
+
 
 #dogCoverPhoto {
     height: 12rem;
     width: 100%;
     object-fit: cover;
 }
+
 
 .dogName {
     font-family: inherit;
