@@ -13,18 +13,11 @@ console.log(process.env.API_SECRET);
 
 var cloudinary = require("cloudinary").v2;
 const Dogs = require("../models/dogs");
-<<<<<<< HEAD
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-=======
 const Favourites = require("../models/favourites");
 cloudinary.config({ 
   cloud_name: process.env.CLOUD_NAME, 
   api_key: process.env.API_KEY, 
   api_secret: process.env.API_SECRET 
->>>>>>> main
 });
 
 router.get("/", (req, res) => {
@@ -51,35 +44,6 @@ router.post("/add", (req, res) => {
     const userEmail = req.session.email; //retriving users email from session
 
     //retriving users id from the database
-<<<<<<< HEAD
-    users.findUserId(userEmail).then((response) => {
-      const user_id = response[0].id;
-
-      //adding the dog into the database
-      Dogs.addDog(
-        name,
-        breed,
-        age,
-        gender,
-        state_code,
-        description,
-        imageUrls,
-        price,
-        user_id
-      )
-        .then(() => {
-          console.log("dog added");
-          res.json({ message: "dog added" });
-        })
-        .catch((err) => {
-          console.log("dog not added");
-          return res.status(400).json({ message: "dog not added" });
-        });
-    });
-  } else {
-    return res.status(403).json({ message: "Must be logged in to add a dog" });
-  }
-=======
     const user_id = req.session.user_id
 
     //adding the favourites into the database
@@ -97,7 +61,6 @@ router.post("/add", (req, res) => {
   }else{return res.status(403).json({ message: "Must be logged in to add a dog" });}
   
   
->>>>>>> main
 });
 
 router.get("/favourites", (req,res) => {
@@ -153,27 +116,7 @@ router.delete("/favourites", (req, res) => {
     return res.status(403).json({ message: 'favourite not removed' });
   });
 
-<<<<<<< HEAD
-router.get("user_dogs", (req, res)=>{
-  if(req.session.email){
-    const userEmail = req.session.email;
-    users.findUserId(userEmail).then((response)=>{
-      const user_id = response[0].id;
-      Dogs.getDogThatUserHasAdded(user_id).then((usersDogs)=>{
-        res.json(usersDogs)
-      }
-      )
-    })
-  }
 })
-
-router.post("/images", (req, res, next) => {
-  const form = formidable({
-    multiples: true,
-  });
-=======
-})
->>>>>>> main
 
   form.parse(req, (err, fields, files) => {
     if (err) {
