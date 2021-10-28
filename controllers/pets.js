@@ -3,16 +3,10 @@ const formidable = require('formidable');
 const users = require("../models/users");
 const dogs = require("../models/dogs");
 const favourites = require("../models/favourites");
-
 const dotenv = require('dotenv')
 dotenv.config();
-
 const router = express.Router();
-
 console.log(process.env.API_SECRET)
-
-
-
 var cloudinary = require('cloudinary').v2;
 const Dogs = require("../models/dogs");
 const Favourites = require("../models/favourites");
@@ -21,7 +15,6 @@ cloudinary.config({
   api_key: process.env.API_KEY, 
   api_secret: process.env.API_SECRET 
 });
-
 router.get("/", (req, res) => {
     
   console.log("retriving all the doggos");
@@ -30,17 +23,13 @@ router.get("/", (req, res) => {
   });
     
   });
-
 router.post("/add", (req, res) => {
   console.log(req.body)
   const { name, breed, age, gender, state_code, description, imageUrls, price} = req.body
-
   if(req.session.email){
     const userEmail = req.session.email //retriving users email from session
-
     //retriving users id from the database
     const user_id = req.session.user_id
-
     //adding the favourites into the database
     Dogs.addDog(name, breed, age, gender, state_code, description, imageUrls, price, user_id).then(() => 
     { 
@@ -50,19 +39,13 @@ router.post("/add", (req, res) => {
       console.log('dog not added')
       return res.status(400).json({ message: 'dog not added' });
     });
-
-
-
   }else{return res.status(403).json({ message: "Must be logged in to add a dog" });}
   
   
 });
-
 router.get("/favourites", (req,res) => {
-
   if (req.session.user_id){
     const userId = req.session.user_id
-
     Favourites.getFavByUserID(userId).then ((favs) => {
       console.log(favs)
       res.json(favs);
@@ -71,50 +54,36 @@ router.get("/favourites", (req,res) => {
       console.log("couldn't retrive favs" )
       return res.status(403).json({ message: "couldn't retrive favs" });
     });
-
-
   }else{
     return res.status(403).json({ message: 'User not logged in' });
   }
-
 })
-
-
 router.post("/favourites/:id", (req, res) => {
   const dogId = req.params.id;
   const userId = req.session.user_id
-
   Favourites.addFav(userId,dogId).then(() => 
   { 
     console.log('favourite added')
     return res.status(200).json({ message: 'favourite added' });
-
   }).catch(err=>{
     console.log(err)
     console.log('favourite not added')
     return res.status(403).json({ message: 'favourite not added' });
   });
-
 })
-
 router.delete("/favourites", (req, res) => {
   const userId = req.session.user_id
-
   Favourites.deleteFavByUserID(userId).then(() => 
   { 
     console.log('favourite removed')
     return res.status(200).json({ message: 'favourite removed' });
-
   }).catch(err=>{
     console.log(err)
     console.log('favourite not removed')
     return res.status(403).json({ message: 'favourite not removed' });
   });
-
 })
-
 router.post("/images", (req, res,next) => {
-
     const form = formidable({
       multiples: true
     });
@@ -139,5 +108,4 @@ router.post("/images", (req, res,next) => {
       });
   
   });
-
 module.exports = router;

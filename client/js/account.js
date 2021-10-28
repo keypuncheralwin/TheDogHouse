@@ -18,7 +18,7 @@ function accountForm() {
            <div class="profile-button" id="profile-page">Profile</div>
            <div class="profile-button">Favorites</div>
           <div class="profile-button" id="add-dog">Add a dog</div>
-          <div class="profile-button">Your Dogs</div>
+          <div class="profile-button" id="userDogs">Your Dogs</div>
            <div id="log-out" class="profile-button">Log out</div>
         </div>
         <div class="view-bar">
@@ -47,6 +47,11 @@ function accountForm() {
         createNav();
       });
     });
+
+    document.getElementById("userDogs").getElementById("click",
+    
+    )
+  
   });
 }
 
