@@ -1,6 +1,7 @@
 function addPetForm() {
   const content = document.getElementById('content')
   content.classList.add('addPetBackground')
+  
   const container = document.getElementById('container')
   container.innerHTML = "";
   const addPet = document.createElement("form");
@@ -55,6 +56,7 @@ function addPetForm() {
   uploadUppy(imageUrls)
   const breedSelection = document.getElementById('breed')
   populateBreed(breedSelection)
+
   addPet.addEventListener("submit", (event) => {
     event.preventDefault()
     const formData = new FormData(addPet)
@@ -68,6 +70,7 @@ function addPetForm() {
       data['imageUrls'] = imageUrls
       axios.post('/api/pets/add', data).then(() => {
         console.log('dog added to database')
+        
       }).catch(err => {
         status.textContent = err.response.data.message
       })

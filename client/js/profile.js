@@ -23,6 +23,7 @@ function createProfilePage(){
     //     document.getElementById("log-out").addEventListener("click", ()=>{
     //         axios.delete(`/api/sessions`).then((response)=>{
     //             console.log(response.data)
+    //              viewAllDogs()
 
     //             createNav()
 
