@@ -9,9 +9,9 @@ CREATE TABLE users(
     password TEXT NOT NULL
 );
 
-CREATE TABLE favorites(
+CREATE TABLE favourites(
     user_id INTEGER NOT NULL REFERENCES users(id),
-    dog_id  INTEGER NOT NULL REFERENCES dog(id)
+    dog_id  INTEGER NOT NULL REFERENCES dogs(id)
 );
 
 

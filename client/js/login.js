@@ -1,4 +1,8 @@
 function loginForm(){
+  //changing background image
+  const content = document.getElementById('content')
+  content.classList.add('login')
+
     const container=document.getElementById("container")
     container.innerHTML=""
     const form = document.createElement("form");
@@ -24,6 +28,7 @@ function loginForm(){
             console.log("do this")
             console.log("succes")
             createNav()
+            viewAllDogs()
         }).catch(err=>{
 
           document.getElementById('status').textContent=err.response.data.message

@@ -72,7 +72,7 @@ nav .logo {
         display: none;
     }
     nav .mainMenu .closeMenu {
-        height: 100vh;
+        
         display: block;
         position: absolute;
         top: 20px;

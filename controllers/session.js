@@ -9,8 +9,14 @@ router.post("/", (req, res) => {
   users.checkUser(email, password).then((response) => {
     if (response) {
       req.session.email = email;
-      console.log("logged in successfully")
-      res.json({ message: "logged in successfully" });
+       //retriving users id from the database
+  users.findUserId(email).then((response) => {
+    //storing the user_id into the session
+    req.session.user_id = response[0].id
+    console.log("logged in successfully")
+    res.json({ message: "logged in successfully" });
+  });
+      
       
     }else{
     
