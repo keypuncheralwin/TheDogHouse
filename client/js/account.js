@@ -21,7 +21,7 @@ function accountForm() {
           <div class="profile-button" id="userDogs">Your Dogs</div>
            <div id="log-out" class="profile-button">Log out</div>
         </div>
-        <div class="view-bar">
+        <div class="view-bar" id="view-bar">
         <p class="profile-label">Name</p>
         <p class="profile-value">${name}</p>
         <p class="profile-label">Email</p>
@@ -35,37 +35,26 @@ function accountForm() {
         </div>
         `;
 
-    document.getElementById("add-dog").addEventListener("click", (e)=>{
-        addPetForm()
-    } )
+    document.getElementById("add-dog").addEventListener("click", (e) => {
+      addPetForm();
+    });
 
     document.getElementById("log-out").addEventListener("click", () => {
       axios.delete(`/api/sessions`).then((response) => {
         console.log(response.data);
-        viewAllDogs()
+        viewAllDogs();
 
         createNav();
       });
     });
 
-    document.getElementById("userDogs").getElementById("click",
-    
-    )
-  
+    document.getElementById("userDogs").addEventListener("click", (e) => {
+      getUsersDog();
+    });
+
+    document.getElementById("profile-page").addEventListener("click", (e)=>{
+      getProfilePage()
+    })
   });
 }
 
-// <table>
-//            <tr>
-//               <th>Name</td>
-//               <td>Email</td>
-//               <td>State</td>
-//               <td>Fact</td>
-//             </tr>
-//             <tr>
-//                <td>${name}</td>
-//                <td>${email}</td>
-//                 <td>${state}</td>
-//                 <td>${fact}</td>
-//              </tr>
-//         </table>

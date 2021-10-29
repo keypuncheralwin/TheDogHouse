@@ -108,4 +108,13 @@ router.post("/images", (req, res,next) => {
       });
   
   });
+
+
+router.get("/userdogs", (req,res)=>{
+  const user_id = req.session.user_id
+  dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
+    res.json(dogs);
+
+  })
+})
 module.exports = router;

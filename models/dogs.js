@@ -13,7 +13,7 @@ const Dogs = {
 
     //getting dog the user has added 
     getDogThatUserHasAdded(user_id){
-      const sql = "SELECT * FROM dogs WHERE id=$1"
+      const sql = "SELECT * FROM dogs WHERE user_id=$1"
       const values=[user_id]
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     }
