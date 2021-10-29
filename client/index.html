@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="./css/filter.css">
     <link rel="stylesheet" href="./css/allDogs.css">
     <link rel="stylesheet" href="./css/backgrounds.css">
     <link rel="stylesheet" href="./css/form.css">
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     <link href="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
@@ -15,16 +16,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dog House</title>
     <script defer src="https://transloadit.edgly.net/releases/uppy/v0.25.2/dist/uppy.min.js"></script>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script src="./js/viewSingleDog.js"></script>
     <script src="./js/uppy.js"></script>
     <script defer src="./js/navbar.js"></script>
     <script src="./js/breed.js"></script>
     <script src="./js/addPet.js"></script>
-    <script src="./js/allDogs.js"></script>
+    <script defer src="./js/filter.js"></script>
+    <script defer src="./js/filterEvents.js"></script>
+    <script src="./js/allDogsBase.js"></script>
+    <script src="./js/allDogsLoggedIn.js"></script>
+    <script src="./js/allDogsGuest.js"></script>
     <script src="./js/signup.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/signup.js"></script>
@@ -35,26 +38,30 @@
 
 
     
+
+
     <script defer src="./js/index.js"></script>
 </head>
 
 <body>
     <div id="wrapper">
-    <div id="header">
-        <nav>
-            <div class="logo"><h1>The Dg House</h1></div>
-            <div class="openMenu"><i class="fa fa-bars"></i></div>
-            <ul class="mainMenu">
-                <div class="closeMenu"><i class="fa fa-times"></i></div>
-            </ul>
-        </nav>
-    
-    </div>
-    <div id="content">
-        <div id="container">
+        <div id="header">
+            <nav>
+                <div class="logo">
+                    <h1>The Dg House</h1>
+                </div>
+                <div class="openMenu"><i class="fa fa-bars"></i></div>
+                <ul class="mainMenu">
+                    <div class="closeMenu"><i class="fa fa-times"></i></div>
+                </ul>
+            </nav>
+
+        </div>
+        <div id="content">
+            <div id="container">
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

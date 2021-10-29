@@ -24,8 +24,9 @@
 }
 
 .dogHeader{
-    background-color: rgba(255, 255, 255, 0.897);
-    color: #002f49c9;
+    /* background-color: rgba(255, 255, 255, 0.897); */
+    background-color: rgba(255, 255, 255, 0.87);
+    color: black;
     font-family: 'Concert One', cursive;
     display: flex;
     align-items: center;
@@ -33,7 +34,7 @@
 }
 
 .dogHeader:hover{
-    background-color: #003049;
+    background-color: rgba(255, 255, 255, 0.411);
     color: white;
 }
 
@@ -74,12 +75,30 @@
     padding: 1rem;
 }
 
-
+.allDogsWrapper{
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.644);
+    padding: 10px;
+    border-radius: 5px;
+    
+}
 
 @media(max-width: 800px) {
+    .allDogsWrapper{
+        display: grid;
+        place-items: center;
+        background-color: rgba(0, 0, 0, 0);
+        
+    }
+
     .allDogs {
         margin: 4px;
         width: 370px;
         grid-template-columns: 1fr;
+        
+       
     }
+
+    
 }
