@@ -25,7 +25,7 @@ function addPetForm() {
   <select name="gender" id="gender" class="feedback-input" required>
       <option value="">Select Gender</option>
       <option value="Male">Male</option>
-      <option value="Senior">Female</option>
+      <option value="Female">Female</option>
       </select>
       </div>
 

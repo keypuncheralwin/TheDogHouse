@@ -1,0 +1,45 @@
+
+.filterContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.filterStatusContainer{
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.644);
+
+}
+
+
+  
+  
+ /* arrows */
+.filter-dropdown {
+    border: 5px solid white;
+    background-color: white;
+    border-radius: 100px 100px;
+    width: 100%;
+    font-family: 'Concert One', cursive;
+    color:black;
+    line-height: 4em;
+    margin: 0 2px;
+
+    
+}
+ 
+  
+
+@media(max-width: 800px) {
+    .filterContainer{
+        display: flex;
+    justify-content: center;
+
+    }
+
+    
+}
