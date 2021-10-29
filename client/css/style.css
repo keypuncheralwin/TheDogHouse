@@ -1,6 +1,7 @@
 body{
     background-color: black;
     color: white;
+    font-family: 'Concert One', cursive;
 }
 
 @font-face {
@@ -15,7 +16,7 @@ body{
     display: grid; 
     height: 100vh;
   grid-template-columns: 1fr; 
-  grid-template-rows: 0.2fr 2.4fr; 
+  grid-template-rows: 0.3fr 2.4fr; 
   gap: 0px 0px; 
   grid-template-areas: 
     "header"
@@ -24,7 +25,7 @@ body{
 
 #header{
     grid-area: header;
-    background: #003049;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +35,14 @@ body{
 #content{
     background-color: white;
     display: grid;
-    place-items: center;
+    justify-content: center;
 }
 
 
+
+@media(max-width: 800px) {
+    #container{
+        background-color: #202232;
+
+    }
+}
