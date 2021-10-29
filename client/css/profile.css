@@ -1,75 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
-
-.block{
-    background-color: rgba(0, 0, 0, 0.644);
-    padding: 30px;
-    border-radius: 5px;
-    width: 800px;
-    margin: 50px auto;
-    display:flex;
+.block {
+  background-color: rgba(0, 0, 0, 0.644);
+  padding: 30px;
+  border-radius: 5px;
+  width: 800px;
+  margin: 50px auto;
+  display: flex;
 }
 
-#logout{
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid #CC6666;
+#logout {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #cc6666;
 }
 
+.profile-button {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  transition: all 0.3s;
+  padding: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+  text-align: center;
+  border-bottom: 2px solid #cc6666;
+  padding: 11px;
+}
 
-.profile-button{
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 22px;
-    transition: all 0.3s;
-    padding: 13px;
+.profile-button:hover {
+  background: rgb(204, 102, 102, 0.6);
+  cursor: pointer;
+}
+
+.menu-bar {
+  display: inline-block;
+  width: 25%;
+}
+
+.view-bar {
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin-left: 12%;
+  height:500px;
+}
+
+.profile-label {
+  font-family: "Concert One", cursive;
+  font-size: 25px;
+  margin-top: 14px;
+}
+
+.profile-value {
+  margin-top: 5px;
+}
+
+.dog-photo {
+    height: 12em;
     width: 100%;
-    box-sizing: border-box;
-    outline: 0;
-    text-align: center;
-    border-bottom: 2px solid #CC6666;
-    padding:11px
+    object-fit: cover;
 }
 
-.profile-button:hover{
-    background: rgb(204, 102, 102, 0.6);
-    cursor: pointer;
-}
-
-.menu-bar{
-    display: inline-block;
-    width: 25%;
-}
-
-.view-bar{
-    
+.view-bar-user-dogs {
     display: inline-block;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
-    margin-left: 90px;
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 500px;
+    overflow-y: auto;
+  }
 
+@media (max-width: 800px) {
+  .block {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
 
+  .view-bar-user-dogs {
+    display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
-.profile-label{
+
+
+.single-user-dog {
+  border: white 8px solid;
+  position: relative;
+  overflow: hidden;
+  margin: 14px;
+  border-radius: 0.45em;
+  box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 200ms;
+  height: 200px;
+  position: relative;
+}
+
+.dog-user-header{
+    background-color: rgba(255, 255, 255, 0.897);
+    color: #002f49c9;
     font-family: 'Concert One', cursive;
-    font-size: 25px;
-    margin-top:14px
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-.profile-value{
-    margin-top:5px
-}
-
-@media (max-width: 800px){
-    .block{
-        border-radius: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-
+.dog-user-header:hover{
+    background-color: #003049;
+    color: white;
 }

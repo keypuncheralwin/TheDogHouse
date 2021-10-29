@@ -79,8 +79,7 @@ function viewAllDogs() {
 
                         if (favourites.innerHTML === `<i class="fas fa-star fa-lg"></i>`) {
                             axios.delete(`api/pets/favourites`).then((response) => {
-                                favourites.innerHTML = ''
-                                favourites.innerHTML = `<i class="fa fa-star fa-lg"></i>`
+                                favourites.innerHTML = `<i class="far fa-star fa-lg"></i>`
                                 favAlertText.textContent = "Removed from your favourites!"
                                 dogHeader.before(favAlertContainer)
                                 setTimeout(function () {
