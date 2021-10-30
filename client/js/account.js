@@ -16,7 +16,7 @@ function accountForm() {
         
         <div class="menu-bar">
            <div class="profile-button" id="profile-page">Profile</div>
-           <div class="profile-button">Favorites</div>
+           <div class="profile-button" id="favourite-dog">Favorites</div>
           <div class="profile-button" id="add-dog">Add a dog</div>
           <div class="profile-button" id="userDogs">Your Dogs</div>
            <div id="log-out" class="profile-button">Log out</div>
@@ -52,9 +52,17 @@ function accountForm() {
       getUsersDog();
     });
 
+    document.getElementById("favourite-dog").addEventListener("click", (e)=>{
+      getFaveDogs();
+    })
+
     document.getElementById("profile-page").addEventListener("click", (e)=>{
       getProfilePage()
     })
+
+
   });
+
+  
 }
 
