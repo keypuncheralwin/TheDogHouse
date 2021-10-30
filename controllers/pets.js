@@ -46,7 +46,7 @@ router.post("/add", (req, res) => {
 router.get("/favourites", (req,res) => {
   if (req.session.user_id){
     const userId = req.session.user_id
-    Favourites.getFavByUserID(userId).then ((favs) => {
+    Favourites.getFavIDByUserID(userId).then ((favs) => {
       console.log(favs)
       res.json(favs);
     }).catch(err=>{
@@ -117,4 +117,23 @@ router.get("/userdogs", (req,res)=>{
 
   })
 })
+
+router.get("/favourites/dogs/", (req, res) => {
+  if(req.session.user_id){
+    const user_id = req.session.user_id
+    Favourites.getFaveDogById(user_id).then((faveDogs)=>{
+    console.log(faveDogs)
+   res.json(faveDogs)
+  
+    })
+    
+  }else{
+
+    res.status(400).json({ message: "User is not logged in" });
+
+  }
+ 
+
+  });
+
 module.exports = router;
