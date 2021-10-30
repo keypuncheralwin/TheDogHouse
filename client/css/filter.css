@@ -22,10 +22,11 @@
 .filter-dropdown {
     border: 5px solid white;
     background-color: white;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
     border-radius: 100px 100px;
     width: 100%;
     font-family: 'Concert One', cursive;
-    color:black;
+    color: black;
     line-height: 4em;
     margin: 0 2px;
 
