@@ -28,3 +28,4 @@ CREATE TABLE dogs(
     user_id INTEGER NOT NULL REFERENCES users(id)
 );
 
+SELECT * FROM dogs INNER JOIN favourites ON dogs.id = favourites.dog_id WHERE favourites.user_id=2;
