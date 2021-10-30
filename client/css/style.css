@@ -2,6 +2,7 @@ body{
     background-color: black;
     color: white;
     font-family: 'Concert One', cursive;
+    overflow: hidden;
 }
 
 @font-face {
@@ -16,7 +17,7 @@ body{
     display: grid; 
     height: 100vh;
   grid-template-columns: 1fr; 
-  grid-template-rows: 0.3fr 2.4fr; 
+  grid-template-rows: 80px 2.4fr; 
   gap: 0px 0px; 
   grid-template-areas: 
     "header"
@@ -26,9 +27,11 @@ body{
 #header{
     grid-area: header;
     background: black;
+    border-bottom: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 
@@ -36,6 +39,8 @@ body{
     background-color: white;
     display: grid;
     justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
