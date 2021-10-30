@@ -84,7 +84,7 @@ function viewAllDogs() {
     axios.get(`/api/sessions`).then((response) => {
         console.log('user logged in')
         //since user is logged in proceed to access their favourites
-        axios.get("api/pets/favourites").then((response) => {
+        axios.get("api/pets/favourites/dogs").then((response) => {
             console.log('retrived favourites')
             favs = response.data
 

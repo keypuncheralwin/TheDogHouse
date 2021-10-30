@@ -47,7 +47,7 @@ router.get("/favourites", (req,res) => {
   if (req.session.user_id){
     const userId = req.session.user_id
     Favourites.getFavIDByUserID(userId).then ((favs) => {
-      console.log(favs)
+      
       res.json(favs);
     }).catch(err=>{
       console.log(err)
@@ -118,7 +118,7 @@ router.get("/userdogs", (req,res)=>{
   })
 })
 
-router.get("/favourites/dogs/", (req, res) => {
+router.get("/favourites/dogs", (req, res) => {
   if(req.session.user_id){
     const user_id = req.session.user_id
     Favourites.getFaveDogById(user_id).then((faveDogs)=>{
