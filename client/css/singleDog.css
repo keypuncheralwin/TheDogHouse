@@ -1,0 +1,42 @@
+
+.singleDogContainer {
+    color: black;
+    margin: 30px 5px 30px 5px;
+    width: 800px;
+    display: grid; 
+    grid-template-rows: 40px 1fr 1fr;
+        
+    
+}
+
+.singleDogHeader{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+        
+}
+
+.singleDogName, .singleDogPrice{
+    border: 5px solid white;
+    background-color: white;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+    border-radius: 100px 100px;
+    width: 7rem;
+    text-align: center;
+    margin: 0 2px;
+}
+
+.singleDogDescription{
+    margin: 5px 5px;
+}
+
+@media(max-width: 800px) {
+
+    .singleDogContainer {
+
+        width: 100%;
+
+    }
+}

@@ -15,6 +15,8 @@ cloudinary.config({
   api_key: process.env.API_KEY, 
   api_secret: process.env.API_SECRET 
 });
+
+//getting all dogs
 router.get("/", (req, res) => {
     
   console.log("retriving all the doggos");
@@ -23,6 +25,20 @@ router.get("/", (req, res) => {
   });
     
   });
+
+//getting one dog by id
+router.get("/:id", (req, res) => {
+
+  const dogId = req.params.id;  
+  console.log("retriving all the doggos");
+  Dogs.getDogById(dogId).then((dog) => {
+    res.json(dog);
+  });
+      
+});
+
+
+
 router.post("/add", (req, res) => {
   console.log(req.body)
   const { name, breed, age, gender, state_code, description, imageUrls, price} = req.body
@@ -43,6 +59,7 @@ router.post("/add", (req, res) => {
   
   
 });
+
 router.get("/favourites", (req,res) => {
   if (req.session.user_id){
     const userId = req.session.user_id
@@ -71,6 +88,7 @@ router.post("/favourites/:id", (req, res) => {
     return res.status(403).json({ message: 'favourite not added' });
   });
 })
+
 router.delete("/favourites", (req, res) => {
   const userId = req.session.user_id
   Favourites.deleteFavByUserID(userId).then(() => 
@@ -83,6 +101,7 @@ router.delete("/favourites", (req, res) => {
     return res.status(403).json({ message: 'favourite not removed' });
   });
 })
+
 router.post("/images", (req, res,next) => {
     const form = formidable({
       multiples: true
@@ -110,8 +129,9 @@ router.post("/images", (req, res,next) => {
   });
 
 
-router.get("/userdogs", (req,res)=>{
+router.get("/user/dogs", (req,res)=>{
   const user_id = req.session.user_id
+  console.log(user_id)
   dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
     res.json(dogs);
 

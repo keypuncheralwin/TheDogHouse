@@ -1,0 +1,56 @@
+
+.singleDogImageContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.swiper {
+  margin: 10px 8px;
+  width: 800px;
+  height: 500px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.swiper-slide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+
+
+  @media(max-width: 600px) {
+    .swiper {
+      
+      margin: 5px 8px;
+      width: 370px;
+      height: 400px;
+      /* box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); */
+    }
+
+    /* .imgInGallery{
+      display: grid;
+      place-items: center;
+        width: 100%;
+        object-fit: contain;
+    
+      } */
+    
+
+
+
+
+  }  

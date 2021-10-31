@@ -59,3 +59,4 @@ function guestAllDogs(dog,allDogsContainer, favAlertContainer, favAlertText){
 
 
 }
+
