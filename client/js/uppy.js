@@ -7,7 +7,7 @@ function uploadUppy(imageUrls){
     } })
   uppy.use(Uppy.Dashboard, { target: '#drag-drop-area',width: '100%', height: '40%',inline: true, proudlyDisplayPoweredByUppy: false, theme: 'dark', })
   uppy.use(Uppy.Webcam, { target: Uppy.Dashboard });   
-  uppy.use(Uppy.XHRUpload, { endpoint: 'http://localhost:3000/api/pets/images', formData: true,
+  uppy.use(Uppy.XHRUpload, { endpoint: '/api/pets/images', formData: true,
   fieldName: 'images' })
 
   uppy.on('upload-success', (file, response) => {

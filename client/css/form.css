@@ -23,6 +23,10 @@ textarea:-moz-placeholder {
 
 }
 
+#drag-drop-area{
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+}
+
 form {
     background-color: rgba(0, 0, 0, 0.644);
     padding: 30px;
@@ -115,12 +119,38 @@ textarea {
 
 @media(max-width: 800px) {
     form {
+        padding: 0 30px;
+        margin: 10px auto;
         background-color: rgba(0, 0, 0, 0);
+        color: #CC6666;
         border-radius: 0;
         width: 100%;
     }
 
     .align {
         display: block;
+    }
+
+    input::-webkit-input-placeholder {
+        color: black;
+    }
+    
+    input:-moz-placeholder {
+        color: black;
+    }
+    
+    textarea::-webkit-input-placeholder {
+        color: black;
+    }
+    
+    textarea:-moz-placeholder {
+        color: black;
+    }
+    .feedback-input {
+        color: black;
+    }
+
+    #currency {
+        color: black;
     }
 }

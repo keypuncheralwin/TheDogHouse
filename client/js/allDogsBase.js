@@ -15,7 +15,7 @@ function viewAllDogs() {
     filterContainer.classList.add('filterContainer')
     filterContainer.innerHTML = `
 
-    
+    <div class="subFilterContainer">
     <select name="breed" id="breedFilter" class="filter-dropdown">
         <option value="">Breed</option>      
     </select>
@@ -34,7 +34,9 @@ function viewAllDogs() {
       <option value="Male">Male</option>
       <option value="Senior">Female</option>
       </select>
+      </div>
 
+      <div class="subFilterContainer filterAlignment">
     <select name="state_code" id="dogStateFilter" class="filter-dropdown">
       <option value="">State</option>
       <option value="NSW">NSW</option>
@@ -44,16 +46,29 @@ function viewAllDogs() {
       <option value="VIC">VIC</option>
       <option value="WA">WA</option>
       </select>
+
+      <div id="priceFilterContainer">
+      <input type="number" name="min_price" id="minPrice" placeholder="Min Price $" step="0.50" min="0" max="100000">
+      <input type="number" name="min_price" id="maxPrice" placeholder="Max Price $" step="0.50" min="0" max="100000">
+      <input type="text" name="dog_name" id="dogName" placeholder="Dog Name">
+      </div>
+
+      </div>     
       
     
     `
 
+    //getting all filter elements from DOM
     container.append(filterContainer)
     const breed = document.getElementById('breedFilter')
     populateBreed(breed)
     const age = document.getElementById('ageFilter')
     const gender = document.getElementById('genderFilter')
     const state_code = document.getElementById('dogStateFilter')
+    const minPrice = document.getElementById('minPrice')
+    const maxPrice = document.getElementById('maxPrice')
+    const dogName = document.getElementById('dogName')
+    
 
     //Creating the results message based on the filters
     const filterStatusContainer = document.createElement('div')
@@ -99,17 +114,27 @@ function viewAllDogs() {
 
                 })
 
+
+                //filter for dog name
+                filterEvent(dogName, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
+                //filter for min price
+                filterEvent(minPrice, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
+                //filter for max price
+                filterEvent(maxPrice, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
                 //drop down filter for age
-                filterEvent(age, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+                filterEvent(age, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
                 //drop down filter for breed
-                filterEvent(breed, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+                filterEvent(breed, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
                 //drop down filter for gender
-                filterEvent(gender, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+                filterEvent(gender, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
-                //drop down filter for gender
-                filterEvent(state_code, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+                //drop down filter for state_code
+                filterEvent(state_code, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
 
 
@@ -139,22 +164,37 @@ function viewAllDogs() {
 
             //Show all dogs first
             dogs.forEach(dog => {
+                
+                if (dog.name.toLowerCase().includes('iron')){
+                    console.log(dog.name)
+                }
+                
                 //feeding favouties data onto each dog post
                 guestAllDogs(dog, allDogsContainer, favAlertContainer, favAlertText)
 
             })
 
+
+            //filter for dog name
+            filterEvent(dogName, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
+            //filter for min price
+            filterEvent(minPrice, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
+            //filter for max price
+            filterEvent(maxPrice, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
+
             //drop down filter for age
-            filterEvent(age, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+            filterEvent(age, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
             //drop down filter for breed
-            filterEvent(breed, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+            filterEvent(breed, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
             //drop down filter for gender
-            filterEvent(gender, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+            filterEvent(gender, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
             //drop down filter for gender
-            filterEvent(state_code, age, breed, gender, state_code, dogs, allDogsContainer, favAlertContainer, favAlertText)
+            filterEvent(state_code, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
 
         })

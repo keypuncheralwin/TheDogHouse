@@ -70,3 +70,40 @@ function checkFilters(age, breed, gender, state_code, dogs){
 
 
 }
+
+
+function priceFilters (minPrice, maxPrice, filteredArray){
+
+    const minPriceNumber = Number(minPrice.value)
+    const maxPriceNumber = Number(maxPrice.value)
+
+    if (!minPrice.value && !maxPrice.value) {
+        return  filteredArray
+
+    } else if (!minPrice.value && maxPrice.value){
+        const priceFilteredArray = filteredArray.filter(e => e.price <= maxPriceNumber)
+        return priceFilteredArray
+
+    } else if (minPrice.value && !maxPrice.value){
+        const priceFilteredArray = filteredArray.filter(e => e.price >= minPriceNumber)
+        return priceFilteredArray
+
+    } else if (minPrice.value && maxPrice.value && minPriceNumber <= maxPriceNumber){
+        const priceFilteredArray = filteredArray.filter(e => e.price >= minPriceNumber && e.price <= maxPriceNumber)
+        return priceFilteredArray
+
+    } else return  filteredArray
+
+}
+
+function nameFilter(dogName, priceFilteredArray){
+
+    const dogNameLowCase = dogName.value.toLowerCase()
+
+    if (dogName.value) {
+        const finalFilteredArray = priceFilteredArray.filter(e => e.name.toLowerCase().includes(dogNameLowCase))
+        return finalFilteredArray 
+
+    } else return priceFilteredArray
+
+}
