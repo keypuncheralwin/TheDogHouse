@@ -1,5 +1,5 @@
 function getUsersDog() {
-  axios.get(`api/pets/userdogs`).then((res) => {
+  axios.get("api/pets/user/dogs").then((res) => {
     console.log(res.data);
     viewBar = document.getElementById("view-bar");
     console.log(viewBar)
@@ -23,7 +23,9 @@ function getUsersDog() {
 
       viewBar.append(div);
     }
-  });
+  }).catch(err => {
+    console.log(err)
+  })
 }
 
 function urlFormat(url) {
