@@ -1,7 +1,8 @@
 
 .filterContainer{
-    margin-top: 10px;
+    margin: 10px 6px 2px 6px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
 }
@@ -15,11 +16,59 @@
 
 }
 
+.subFilterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filterAlignment{
+    margin-top: 10px;
+}
+
+#priceFilterContainer{
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+#minPrice::-webkit-input-placeholder {
+    font-family: 'Concert One', cursive;
+    color: black;
+}
+
+#maxPrice::-webkit-input-placeholder {
+    font-family: 'Concert One', cursive;
+    color: black;
+}
+
+#dogName::-webkit-input-placeholder {
+    font-family: 'Concert One', cursive;
+    color: black;
+}
+
+#dogStateFilter{
+    max-width: 100px;
+    
+}
+
+#minPrice, #maxPrice, #dogName{
+    
+    max-width: 120px;
+    border: 5px solid white;
+    background-color: white;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+    border-radius: 100px 100px;
+    margin: 0 2px;
+
+}
+
 
   
   
  /* arrows */
 .filter-dropdown {
+    height: 35px;
     border: 5px solid white;
     background-color: white;
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);

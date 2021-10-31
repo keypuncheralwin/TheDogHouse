@@ -19,12 +19,19 @@ const Dogs = {
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },
 
+
     getDogAndPoster(dog_id){
       const sql = "SELECT * FROM dogs INNER JOIN users ON dogs.user_id = users.id WHERE dogs.id=$1;"
       const values=[dog_id]
       return db.query(sql,values).then((dbRes) => dbRes.rows);
 
+    //getting dog info by the dog id 
+    getDogById(dog_id){
+      const sql = "SELECT * FROM dogs WHERE id=$1"
+      const values=[dog_id]
+      return db.query(sql,values).then((dbRes) => dbRes.rows);
     }
+
   };
 
   
