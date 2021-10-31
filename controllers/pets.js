@@ -138,6 +138,16 @@ router.get("/user/dogs", (req,res)=>{
   })
 })
 
+router.get("/user/dogs/:dogid", (req,res)=>{
+  const dog_id = req.params.dogid
+  dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
+    console.log(dogs_and_user)
+    res.json(dogs_and_user);
+
+  })
+})
+
+
 router.get("/favourites/dogs", (req, res) => {
   if(req.session.user_id){
     const user_id = req.session.user_id

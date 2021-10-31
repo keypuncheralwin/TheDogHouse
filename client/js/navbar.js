@@ -60,14 +60,14 @@ function createNav() {
       login.textContent = "Login";
       mainMenu.append(login);
 
-      const addPet = document.createElement("li");
-      addPet.textContent = "Add a Pet";
-      mainMenu.append(addPet);
+      // const addPet = document.createElement("li");
+      // addPet.textContent = "Add a Pet";
+      // mainMenu.append(addPet);
 
-      addPet.addEventListener("click", (e) => {
-        close();
-        addPetForm();
-      });
+      // addPet.addEventListener("click", (e) => {
+      //   close();
+      //   addPetForm();
+      // });
 
       signUp.addEventListener("click", (e) => {
         close();

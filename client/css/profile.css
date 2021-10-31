@@ -119,9 +119,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    font-family: sans-serif;
+    font-size: 9px;
 }
 
-.dog-user-header:hover{
-    background-color: #003049;
-    color: white;
-}

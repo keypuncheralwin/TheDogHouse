@@ -1,4 +1,5 @@
 const express = require("express");
+const eiows = require("eiows");
 
 
 const dotenv = require('dotenv')
@@ -17,6 +18,7 @@ const userController= require("./controllers/user");
 
 const errorHandler = require('./middleware/error')
 const logMiddleware = require('./middleware/logger');
+const { Server } = require("eiows");
 
 
 
@@ -51,7 +53,30 @@ app.use("/api/user", userController);
 
 app.use(errorHandler)
 
-// start the web server
-app.listen(port, () => {
-  console.log(`listening on port http://localhost:${port}`);
-});
+const server = app.listen(port)
+
+
+const io = require("socket.io")(server);
+
+io.on('connection', (socket) => {
+	console.log('New user connected')
+
+	// //default username
+	// socket.username = "Anonymous"
+
+  //   //listen on change_username
+  //   socket.on('change_username', (data) => {
+  //       socket.username = data.username
+  //   })
+
+    //listen on new_message
+    socket.on('new_message', (data) => {
+        //broadcast the new message
+        io.sockets.emit('new_message', {message : data.message, username : socket.username});
+    })
+
+    //listen on typing
+    socket.on('typing', (data) => {
+    	socket.broadcast.emit('typing', {username : socket.username})
+    })
+})
