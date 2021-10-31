@@ -25,6 +25,8 @@ const Dogs = {
       const values=[dog_id]
       return db.query(sql,values).then((dbRes) => dbRes.rows);
 
+    },
+
     //getting dog info by the dog id 
     getDogById(dog_id){
       const sql = "SELECT * FROM dogs WHERE id=$1"
