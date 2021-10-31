@@ -20,9 +20,25 @@ function dogById(dogId){
     singleDogDescription.classList.add('singleDogDescription')
     singleDogContainer.append(singleDogDescription)
 
+   
+
         //checking if user is logged in
         axios.get(`/api/sessions`).then((response) => {
             console.log('user logged in')
+
+
+            axios.get(`api/pets/user/dogs/${dogId}`).then((res)=>{
+                const userAndDog=res.data
+                console.log(res.data)
+                button=document.createElement('button')
+                button.textContent="Message me!"
+                container.append(button)
+                button.addEventListener("click", (e)=>{getMessageProfile(userAndDog)})
+            
+            })
+
+         
+    
 
             //since user is logged in proceed to access their favourites
             axios.get("api/pets/favourites/dogs").then((response) => {
@@ -69,6 +85,7 @@ function dogById(dogId){
     
         })
 
+      
 
 
 

@@ -11,7 +11,6 @@ function accountForm() {
     const fact = response.data[0].fact;
 
     container.innerHTML = `
-    <h1 class="largeFont">Hey, ${name} how are you?</h1>
         <div class="block">
         
         <div class="menu-bar">

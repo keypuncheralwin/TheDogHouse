@@ -112,11 +112,22 @@ router.post("/images", (req, res,next) => {
 
 router.get("/userdogs", (req,res)=>{
   const user_id = req.session.user_id
+  console.log(user_id)
   dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
     res.json(dogs);
 
   })
 })
+
+router.get("/user/dogs/:dogid", (req,res)=>{
+  const dog_id = req.params.dogid
+  dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
+    console.log(dogs_and_user)
+    res.json(dogs_and_user);
+
+  })
+})
+
 
 router.get("/favourites/dogs", (req, res) => {
   if(req.session.user_id){

@@ -17,19 +17,21 @@
   },
   "homepage": "https://github.com/keypuncheralwin/ThePetStore#readme",
   "dependencies": {
-
-    "bcrypt": "^5.0.1",
-    "cloudinary": "^1.27.1",
-
     "@uppy/image-editor": "^1.0.4",
     "axios": "^0.23.0",
-
-
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.27.1",
     "connect-pg-simple": "^7.0.0",
     "dotenv": "^10.0.0",
+    "eiows": "^3.7.3",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "formidable": "^1.2.2",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "socket.io": "^4.3.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.5",
+    "utf-8-validate": "^5.0.7"
   }
 }

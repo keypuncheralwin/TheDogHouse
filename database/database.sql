@@ -28,4 +28,18 @@ CREATE TABLE dogs(
     user_id INTEGER NOT NULL REFERENCES users(id)
 );
 
+
+CREATE TABLE messages{
+    id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    body TEXT,
+    sender_id INTEGER NOT NULL REFERENCES users(id),
+    time TIME 
+}
+
+CREATE TABLE recipient {
+    id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+    message_id INTEGER NOT NULL REFERENCES message_id(id), 
+    recipient_id INTEGER NOT NULL REFERENCES users(id)
+}
+
 SELECT * FROM dogs INNER JOIN favourites ON dogs.id = favourites.dog_id WHERE favourites.user_id=2;
