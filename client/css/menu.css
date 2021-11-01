@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 
 * {
     box-sizing: border-box;
@@ -12,7 +12,6 @@ nav {
     color: #fff;
     display: flex;
     justify-content: space-between;
-    font-family: 'Concert One', cursive;
 }
 nav .mainMenu {
     display: flex;

@@ -39,4 +39,13 @@ router.post("/", (req, res) => {
   }
 });
 
+router.get("/:id", (req, res) => {
+  const userId = req.params.id
+    users.findUserById(userId).then((userDetails)=>{
+      console.log(userDetails)
+       res.json(userDetails)
+    })
+  
+});
+
 module.exports = router;

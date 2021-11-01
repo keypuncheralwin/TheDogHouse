@@ -1,16 +1,20 @@
 
 .singleDogImageContainer{
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 
 .swiper {
-  margin: 10px 8px;
+  
   width: 800px;
   height: 500px;
+  margin: 10px 0;
+  /* box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);  */
+  
 }
 
 .swiper-slide {
+
   text-align: center;
   font-size: 18px;
   background: rgba(0, 0, 0, 0);

@@ -89,9 +89,9 @@ router.post("/favourites/:id", (req, res) => {
   });
 })
 
-router.delete("/favourites", (req, res) => {
-  const userId = req.session.user_id
-  Favourites.deleteFavByUserID(userId).then(() => 
+router.delete("/favourites/:id", (req, res) => {
+  const dogId = req.params.id;
+  Favourites.deleteFavByUserID(dogId).then(() => 
   { 
     console.log('favourite removed')
     return res.status(200).json({ message: 'favourite removed' });
