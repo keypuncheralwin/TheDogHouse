@@ -6,7 +6,6 @@
 }
 
 .singleDog {
-    
     border: white 8px solid;
     position: relative; 
     overflow: hidden;
@@ -25,19 +24,17 @@
 }
 
 .dogHeader{
-    /* background-color: rgba(255, 255, 255, 0.897); */
-    background-color: rgba(255, 255, 255, 0.87);
-    color: black;
-    font-family: sans-serif;
-    font-size: 0.7rem;
+    background-color: rgba(255, 255, 255, 0.897);
+    color: #002f49c9;
+    font-family: 'Concert One', cursive;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .dogHeader:hover{
-    background-color: rgba(2, 2, 2, 0.358);
-    color: black;
+    background-color: #003049;
+    color: white;
 }
 
 .favAlertContainer{

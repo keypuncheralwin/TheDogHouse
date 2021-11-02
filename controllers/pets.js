@@ -15,8 +15,6 @@ cloudinary.config({
   api_key: process.env.API_KEY, 
   api_secret: process.env.API_SECRET 
 });
-
-//getting all dogs
 router.get("/", (req, res) => {
     
   console.log("retriving all the doggos");
@@ -25,20 +23,6 @@ router.get("/", (req, res) => {
   });
     
   });
-
-//getting one dog by id
-router.get("/:id", (req, res) => {
-
-  const dogId = req.params.id;  
-  console.log("retriving all the doggos");
-  Dogs.getDogById(dogId).then((dog) => {
-    res.json(dog);
-  });
-      
-});
-
-
-
 router.post("/add", (req, res) => {
   console.log(req.body)
   const { name, breed, age, gender, state_code, description, imageUrls, price} = req.body
@@ -59,12 +43,11 @@ router.post("/add", (req, res) => {
   
   
 });
-
 router.get("/favourites", (req,res) => {
   if (req.session.user_id){
     const userId = req.session.user_id
-    Favourites.getFavIDByUserID(userId).then ((favs) => {
-      
+    Favourites.getFavByUserID(userId).then ((favs) => {
+      console.log(favs)
       res.json(favs);
     }).catch(err=>{
       console.log(err)
@@ -88,7 +71,6 @@ router.post("/favourites/:id", (req, res) => {
     return res.status(403).json({ message: 'favourite not added' });
   });
 })
-
 router.delete("/favourites", (req, res) => {
   const userId = req.session.user_id
   Favourites.deleteFavByUserID(userId).then(() => 
@@ -101,7 +83,6 @@ router.delete("/favourites", (req, res) => {
     return res.status(403).json({ message: 'favourite not removed' });
   });
 })
-
 router.post("/images", (req, res,next) => {
     const form = formidable({
       multiples: true
@@ -127,55 +108,4 @@ router.post("/images", (req, res,next) => {
       });
   
   });
-
-
-router.get("/user/dogs", (req,res)=>{
-  const user_id = req.session.user_id
-  console.log(user_id)
-  dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
-    res.json(dogs);
-
-  })
-})
-
-router.get("/user/dogs/:dogid", (req,res)=>{
-  const dog_id = req.params.dogid
-  dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
-    console.log(dogs_and_user)
-    console.log(dogs_and_user[0].user_id)
-    console.log(req.session.user_id)
-
-    if(dogs_and_user[0].user_id===req.session.user_id){
-      res.status(400).json({ message: "You posted this do you cannot message this user" });
-      
-    }else{
-      res.json(dogs_and_user);      
-
-      
-
-    }
-
-
-  })
-})
-
-
-router.get("/favourites/dogs", (req, res) => {
-  if(req.session.user_id){
-    const user_id = req.session.user_id
-    Favourites.getFaveDogById(user_id).then((faveDogs)=>{
-    console.log(faveDogs)
-   res.json(faveDogs)
-  
-    })
-    
-  }else{
-
-    res.status(400).json({ message: "User is not logged in" });
-
-  }
- 
-
-  });
-
 module.exports = router;
