@@ -1,5 +1,6 @@
 
 .filterContainer{
+    text-align: center;
     margin: 10px 6px 2px 6px;
     display: flex;
     flex-direction: column;
@@ -9,10 +10,18 @@
 
 
 .filterStatusContainer{
-    margin: 5px 0;
+    margin: 8px 0 5px 0;
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.644);
+
+}
+
+.filterStatus{
+    color: grey;
+    background-color: rgba(255, 255, 255, 0.644);
+    padding: 10px;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+    border-radius: 100px 100px;
 
 }
 
@@ -29,32 +38,27 @@
 #priceFilterContainer{
     display: flex;
     flex-direction: row;
-    color: black;
 }
 
 #minPrice::-webkit-input-placeholder {
-    font-family: 'Concert One', cursive;
     color: black;
 }
 
 #maxPrice::-webkit-input-placeholder {
-    font-family: 'Concert One', cursive;
     color: black;
 }
 
 #dogName::-webkit-input-placeholder {
-    font-family: 'Concert One', cursive;
     color: black;
 }
 
 #dogStateFilter{
-    max-width: 100px;
+    width: fit-content;
     
 }
 
 #minPrice, #maxPrice, #dogName{
-    
-    max-width: 120px;
+    width: fit-content;
     border: 5px solid white;
     background-color: white;
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
@@ -63,6 +67,9 @@
 
 }
 
+#maxPrice{
+    width: 96px;
+}
 
   
   
@@ -74,8 +81,6 @@
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
     border-radius: 100px 100px;
     width: 100%;
-    font-family: 'Concert One', cursive;
-    color: black;
     line-height: 4em;
     margin: 0 2px;
 
@@ -89,6 +94,10 @@
         display: flex;
     justify-content: center;
 
+    }
+
+    #maxPrice{
+        width: fit-content;
     }
 
     

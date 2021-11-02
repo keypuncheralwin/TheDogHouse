@@ -46,6 +46,10 @@ body{
     overflow-y: auto;
 }
 
+#container{
+    margin-bottom: 30px;
+}
+
 
 
 @media(max-width: 800px) {

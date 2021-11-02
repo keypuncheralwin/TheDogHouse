@@ -1,19 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 input::-webkit-input-placeholder {
-    color: white;
+    color: grey;
 }
 
 input:-moz-placeholder {
-    color: white;
+    color: grey;
 }
 
 textarea::-webkit-input-placeholder {
-    color: white;
+    color: grey;
 }
 
 textarea:-moz-placeholder {
-    color: white;
+    color: grey;
 }
 
 .largeFont {
@@ -29,15 +29,21 @@ textarea:-moz-placeholder {
 
 form {
     color: #CC6666;
-    background-color: rgba(0, 0, 0, 0.644);
+    background-color: rgba(255, 255, 255, 0.392);
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
     padding: 30px;
     border-radius: 5px;
     width: 800px;
     margin: 50px auto;
 }
 
+#status{
+    margin: 10px;
+    font-size: 1.1em;
+}
+
 .feedback-input {
-    color: white;
+    color: grey;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -58,8 +64,7 @@ form {
 }
 
 textarea {
-    color: red;
-    height: 150px;
+    height: 200px;
     line-height: 150%;
     resize: vertical;
 }
@@ -101,8 +106,8 @@ textarea {
 }
 
 #currency {
+    color: grey;
     margin-right: 4px;
-    color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -120,9 +125,9 @@ textarea {
 
 @media(max-width: 800px) {
     form {
-        padding: 0 30px;
         margin: 10px auto;
         background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
         color: #CC6666;
         border-radius: 0;
         width: 100%;
@@ -131,27 +136,11 @@ textarea {
     .align {
         display: block;
     }
-
-    input::-webkit-input-placeholder {
-        color: black;
-    }
-    
-    input:-moz-placeholder {
-        color: black;
-    }
-    
-    textarea::-webkit-input-placeholder {
-        color: black;
-    }
-    
-    textarea:-moz-placeholder {
-        color: black;
-    }
     .feedback-input {
-        color: black;
+        color: grey;
     }
 
     #currency {
-        color: black;
+        color: grey;
     }
 }

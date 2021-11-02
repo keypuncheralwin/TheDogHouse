@@ -22,19 +22,24 @@ function filterEvent(element, filter1, filter2, filter3, filter4, filter5, filte
         //Creating the results message based on the filters
         const filterContainer = document.querySelector('.filterContainer')
         const filterStatusContainer = document.querySelector('.filterStatusContainer')
-        const filterStatus = document.querySelector('.filterStatus')
+        const filterStatus = document.createElement('h4')
+        filterStatus.classList.add('filterStatus')
+        filterStatusContainer.innerHTML = ''
 
         if (finalFilteredArray.length === 0){
             console.log('no results')
 
             filterStatus.textContent = ''
             filterStatus.textContent = 'No Results for those filters'
+            filterStatusContainer.append(filterStatus)
             
 
         } else{
 
             filterStatus.textContent = ''
             filterStatus.textContent = 'Showing you '+ finalFilteredArray.length + ' Result(s)'
+            filterStatusContainer.append(filterStatus)
+            
 
             finalFilteredArray.forEach(dog => {
                 guestAllDogs(dog, allDogsContainer, favAlertContainer, favAlertText)

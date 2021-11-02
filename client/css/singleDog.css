@@ -9,12 +9,11 @@
 
 
 .singleDogContainer {
-    background-color: rgba(0, 0, 0, 0.831);
+    background-color: rgba(255, 255, 255, 0.392);
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
     box-sizing: border-box;
     padding: 20px;
-    border-radius: 10px;
-    color: white;
+    color: grey;
     /* margin: 30px 20px 30px 20px; */
     display: grid; 
     grid-template-rows: 0.7fr 0.3fr 0.2fr;
@@ -71,13 +70,11 @@
 
 }
 
-#singleDogDescriptionBox{
-    margin: 10px;
-    border-radius: 8px;
-    border: #CC6666 2px solid;
-    padding: 10px 20px 20px 20px;
-    min-height: 200px;
+#viewDescription{
+    height: 250px;
     width: 600px;
+    line-height: 150%;
+    resize: vertical;
 }
 
 .contactPosterWraper{
@@ -118,14 +115,12 @@
         width: 100%;
 
     }
-
-    #singleDogDescriptionBox{
-        margin: 10px;
-        border-radius: 8px;
-        border: #CC6666 2px solid;
-        padding: 10px;
-        min-height: 200px;
+    #viewDescription{
         width: 100%;
+    }
+
+    .singleDogContainer {
+        padding-bottom: 40px;
     }
 
 

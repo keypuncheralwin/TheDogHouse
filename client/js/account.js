@@ -11,14 +11,17 @@ function accountForm() {
     const fact = response.data[0].fact;
 
     container.innerHTML = `
+    <div class="blockWrapper">
         <div class="block">
         
         <div class="menu-bar">
            <div class="profile-button" id="profile-page">Profile</div>
            <div class="profile-button" id="favourite-dog">Favorites</div>
           <div class="profile-button" id="add-dog">Add a dog</div>
+          <div class="sub-menu">
           <div class="profile-button" id="userDogs">Your Dogs</div>
            <div id="log-out" class="profile-button">Log out</div>
+           </div>
         </div>
         <div class="view-bar" id="view-bar">
         <p class="profile-label">Name</p>
@@ -30,6 +33,7 @@ function accountForm() {
         <p class="profile-label">Your Favourite Breed</p>
         <p class="profile-value">${fact}</p>
      
+        </div>
         </div>
         </div>
         `;

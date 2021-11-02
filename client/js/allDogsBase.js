@@ -73,10 +73,7 @@ function viewAllDogs() {
     //Creating the results message based on the filters
     const filterStatusContainer = document.createElement('div')
     filterStatusContainer.classList.add('filterStatusContainer')
-    const filterStatus = document.createElement('h3')
-    filterStatus.classList.add('filterStatus')
     filterContainer.after(filterStatusContainer)
-    filterStatusContainer.append(filterStatus)
 
     //creating the favourites alert message
     const favAlertContainer = document.createElement('div')
