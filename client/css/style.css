@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body{
     background-color: black;
-    /* color: white; */
-    font-family: 'Concert One', cursive;
+    font-family: 'Lexend Deca', sans-serif;
     overflow: hidden;
 }
 
@@ -24,10 +25,12 @@ body{
     "content"
 }
 
-#header{
+
+#header{    
     grid-area: header;
     background: black;
-    border-bottom: 2px solid white;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
+    border-bottom: 2px solid #CC6666;
     display: flex;
     justify-content: center;
     align-items: center;

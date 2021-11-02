@@ -24,6 +24,12 @@ const users = {
     return db.query(sql,values).then((dbRes) => dbRes.rows);
   },
 
+  findUserById(id) {
+    const sql = "SELECT name, email FROM users WHERE id= $1";
+    const values = [id];
+    return db.query(sql,values).then((dbRes) => dbRes.rows);
+  },
+
   checkUser(email, password) {
     return findPassword(email).then((res) => {
 

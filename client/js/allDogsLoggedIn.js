@@ -53,7 +53,7 @@ function loggedInAllDogs(dog, favs, allDogsContainer, favAlertContainer, favAler
                     favourites.addEventListener('click', e => {
 
                         if (favourites.innerHTML === `<i class="fas fa-star fa-lg"></i>`) {
-                            axios.delete(`api/pets/favourites`).then((response) => {
+                            axios.delete(`api/pets/favourites/${dog.id}`).then((response) => {
                                 favourites.innerHTML = `<i class="far fa-star fa-lg"></i>`
                                 favAlertText.textContent = "Removed from your favourites!"
                                 dogHeader.before(favAlertContainer)

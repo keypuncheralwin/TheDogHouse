@@ -4,28 +4,45 @@ function dogById(dogId){
     const container = document.getElementById('container')
     container.innerHTML = ''
 
+    const singleDogWrapper = document.createElement('div')
+    singleDogWrapper.classList.add('singleDogWrapper')
+    container.append(singleDogWrapper)
+
     const singleDogContainer = document.createElement('div')
     singleDogContainer.classList.add('singleDogContainer')
-    container.append(singleDogContainer)
+    singleDogWrapper.append(singleDogContainer)
 
-    const singleDogHeader = document.createElement('div')
-    singleDogHeader.classList.add('singleDogHeader')
-    singleDogContainer.append(singleDogHeader)
 
     const singleDogImageContainer = document.createElement('div')
     singleDogImageContainer.classList.add('singleDogImageContainer')
     singleDogContainer.append(singleDogImageContainer)
 
-    const singleDogDescription = document.createElement('div')
-    singleDogDescription.classList.add('singleDogDescription')
-    singleDogContainer.append(singleDogDescription)
+    const singleDogHeader = document.createElement('div')
+    singleDogHeader.classList.add('singleDogHeader')
+    singleDogContainer.append(singleDogHeader)
+
+    const contactPosterWraper = document.createElement('div')
+    contactPosterWraper.classList.add('contactPosterWraper')
+    singleDogContainer.append(contactPosterWraper)
 
 
         //checking if user is logged in
         axios.get(`/api/sessions`).then((response) => {
             console.log('user logged in')
+            
 
-         
+
+            // axios.get(`api/pets/user/dogs/${dogId}`).then((res)=>{
+            //     const userAndDog=res.data
+            //     console.log(res.data)
+            //     button=document.createElement('button')
+            //     button.textContent="Message me!"
+            //     container.append(button)
+            //     button.addEventListener("click", (e)=>{getMessageProfile(userAndDog)})
+            
+            // })
+
+
     
 
             //since user is logged in proceed to access their favourites
@@ -34,44 +51,21 @@ function dogById(dogId){
                 favs = response.data
                 console.log(favs)
     
-                //access all dog posts
+                //access single dog post
                 axios.get(`/api/pets/${dogId}`).then((response) => {
                     dog = response.data[0]
                     console.log(dog)
 
-                const dogName = document.createElement('h2')
-                dogName.classList.add('singleDogName')
-                dogName.textContent = dog.name
-                singleDogHeader.append(dogName)
+                    //access the user who posted the ad
+                    axios.get(`/api/user/${dog.user_id}`).then((response) => {
+                        dogPostUser = response.data[0]
+                        console.log(dogPostUser)
 
-                const dogPrice = document.createElement('h2')
-                dogPrice.classList.add('singleDogPrice')
-                dogPrice.textContent = '$' + dog.price
-                singleDogHeader.append(dogPrice)
 
-                //retriving img urls
-                const urlArray = dog.image.split(',')
-                const formattedUrl = urlFormat(urlArray)
-                
-                // creating the img gallery 
-                const swiper = document.createElement('div')
-                swiper.classList.add('swiper')
-                singleDogImageContainer.append(swiper)
+                        viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageContainer, contactPosterWraper, dogPostUser)
 
-                const swiperWrapper = document.createElement('div')
-                swiperWrapper.classList.add('swiper-wrapper')
-                swiper.append(swiperWrapper)
-                
+                        
 
-                for (url of formattedUrl){
-                    console.log(url)
-                    const swiperSlide = document.createElement('div')
-                    swiperSlide.classList.add('swiper-slide')
-                    // swiperSlide.innerHTML = `Test`
-                    swiperSlide.innerHTML = `<img class="imgInGallery" src=${url}>`
-                    swiperWrapper.append(swiperSlide)
-                                 
-                }
 
 
             axios.get(`api/pets/user/dogs/${dogId}`).then((res)=>{
@@ -90,18 +84,14 @@ function dogById(dogId){
                 swiperPagination.classList.add('swiper-pagination')
                 swiper.append(swiperPagination)
 
-                // const swiperPrevButton = document.createElement('div')
-                // swiperPrevButton.classList.add('swiper-button-prev')
-                // swiper.append(swiperPrevButton)
 
-                // const swiperNextButton = document.createElement('div')
-                // swiperNextButton.classList.add('swiper-button-next')
-                // swiper.append(swiperNextButton)
 
-                // const swiperScroll = document.createElement('div')
-                // swiperScroll.classList.add('swiper-scrollbar')
-                // swiper.append(swiperScroll)
-                imgGallery()
+
+                
+                    }).catch((err) => {
+                        console.log(err)
+                        console.log("error retrieving user details")
+                    })
 
     
     
@@ -130,10 +120,23 @@ function dogById(dogId){
             //user is not logged in
             console.log('user NOT logged in')
             //access all dog posts
-            axios.get("/api/pets").then((response) => {
-                dogs = response.data
+            axios.get(`/api/pets/${dogId}`).then((response) => {
+                dog = response.data[0]
+
+                //since the user is not logged, we're not accesing the post's user details
+                const dogPostUser = false 
+
+                //since the user is not logged, we're leaving the favourite button empty
+                const favs = false 
+
+                viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageContainer, contactPosterWraper, dogPostUser)
     
                 
+    
+    
+            }).catch((err) => {
+                console.log(err)
+                console.log('Error accessing dog post details')
     
     
             })
