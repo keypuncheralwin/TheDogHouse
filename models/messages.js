@@ -20,6 +20,12 @@ const Messages = {
         return db
           .query("SELECT * FROM users where id= $1", [id])
           .then((dbRes) => dbRes.rows);
+      },
+
+      getAllMessags(id) {
+        return db
+          .query("SELECT * FROM messages WHERE sender_id= $1 OR recipient_id=$1 ORDER BY time DESC", [id])
+          .then((dbRes) => dbRes.rows);
       }
   };
 
