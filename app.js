@@ -15,6 +15,7 @@ const pgSession = connectPgSimple(expressSession);
 const petsController = require("./controllers/pets");
 const sessionController = require("./controllers/session");
 const userController= require("./controllers/user");
+const messagesController= require("./controllers/messages");
 
 const errorHandler = require('./middleware/error')
 const logMiddleware = require('./middleware/logger');
@@ -48,6 +49,7 @@ app.use("/api/sessions", sessionController);
 app.use("/api/pets", petsController);
 
 app.use("/api/user", userController);
+app.use("/api/messages", messagesController)
 
 
 
