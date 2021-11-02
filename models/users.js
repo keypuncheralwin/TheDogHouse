@@ -42,7 +42,7 @@ const users = {
     return db
       .query("SELECT * FROM users where email= $1", [email])
       .then((dbRes) => dbRes.rows);
-  },
+  }
 };
 
 const generateHash = (password) => {

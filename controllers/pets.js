@@ -142,7 +142,19 @@ router.get("/user/dogs/:dogid", (req,res)=>{
   const dog_id = req.params.dogid
   dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
     console.log(dogs_and_user)
-    res.json(dogs_and_user);
+    console.log(dogs_and_user[0].user_id)
+    console.log(req.session.user_id)
+
+    if(dogs_and_user[0].user_id===req.session.user_id){
+      res.status(400).json({ message: "You posted this do you cannot message this user" });
+      
+    }else{
+      res.json(dogs_and_user);      
+
+      
+
+    }
+
 
   })
 })

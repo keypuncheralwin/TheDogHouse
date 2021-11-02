@@ -25,17 +25,6 @@ function dogById(dogId){
         axios.get(`/api/sessions`).then((response) => {
             console.log('user logged in')
 
-
-            axios.get(`api/pets/user/dogs/${dogId}`).then((res)=>{
-                const userAndDog=res.data
-                console.log(res.data)
-                button=document.createElement('button')
-                button.textContent="Message me!"
-                container.append(button)
-                button.addEventListener("click", (e)=>{getMessageProfile(userAndDog)})
-            
-            })
-
          
     
 
@@ -83,6 +72,19 @@ function dogById(dogId){
                     swiperWrapper.append(swiperSlide)
                                  
                 }
+
+
+            axios.get(`api/pets/user/dogs/${dogId}`).then((res)=>{
+                const userAndDog=res.data
+                console.log(res.data)
+                button=document.createElement('button')
+                button.textContent="Message me!"
+                singleDogHeader.append(button)
+                button.addEventListener("click", (e)=>{
+                    getMessageProfile(userAndDog)
+                })
+            
+            }).catch(err=>console.log(err))
 
                 const swiperPagination = document.createElement('div')
                 swiperPagination.classList.add('swiper-pagination')
