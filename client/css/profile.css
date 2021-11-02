@@ -1,12 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
+.blockWrapper{
+  display: grid;
+  place-items: center;
+  height: 90vh;
+  
+}
+
 .block {
-  background-color: rgba(0, 0, 0, 0.644);
-  padding: 30px;
-  border-radius: 5px;
   width: 800px;
-  margin: 50px auto;
+  display: grid; 
+  grid-template-rows: 40px 1fr;
+  padding: 30px;
+  box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+}
+
+.menu-bar {
   display: flex;
+  justify-content: center;
+
 }
 
 #logout {
@@ -16,19 +28,12 @@
 }
 
 .profile-button {
-  color: white;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 22px;
-  transition: all 0.3s;
-  padding: 13px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: 0;
-  text-align: center;
-  border-bottom: 2px solid #cc6666;
-  padding: 11px;
+  margin: 2px;
+  border-radius: 8px;
+  padding: 5px;
+  border: #CC6666 2px solid;
+  box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+  
 }
 
 .profile-button:hover {
@@ -36,17 +41,9 @@
   cursor: pointer;
 }
 
-.menu-bar {
-  display: inline-block;
-  width: 25%;
-}
-
-.view-bar {
-  display: inline-block;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  margin-left: 12%;
-  height:500px;
+.sub-menu{
+  display: flex;
+  
 }
 
 .profile-label {
@@ -66,19 +63,19 @@
 }
 
 .view-bar-user-dogs {
-    display: inline-block;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    margin-left: 10%;
+  
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 500px;
     overflow-y: auto;
   }
 
 @media (max-width: 800px) {
+
+  .blockWrapper{
+    width: 100%;
+  }
   .block {
-    border-radius: 0;
+    box-shadow: none;
     width: 100%;
     height: 100%;
   }
@@ -88,6 +85,10 @@
     font-family: Helvetica, Arial, sans-serif;
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .menu-bar {
+    flex-direction: row;
   }
 }
 

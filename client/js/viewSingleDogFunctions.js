@@ -21,7 +21,8 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 
 
                 <div id="favContainer">
-                <div id="singleDogDescriptionBox">${dog.description}</div>
+                <textarea name="description" class="feedback-input" placeholder="description" readonly id="viewDescription">${dog.description}</textarea> 
+                
                 </div>               
 
                 `
@@ -54,6 +55,7 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 swiperPagination.classList.add('swiper-pagination')
                 swiper.append(swiperPagination)
 
+                //calling the image gallery function to load swiper js
                 imgGallery()
 
                 //if the dog post user details have been accessed then we can show their details
@@ -69,13 +71,25 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 <div id="enquireButton">Enquire about ${dog.name}</div> 
                 </div>            
                 `
+
+                const enquireButton = document.getElementById('enquireButton')
+                enquireButton.addEventListener('click', e =>{
+                    const subject = `enquiring about your lovely dog ${dog.name}`
+                    const emailBody = "Hey " + dogPostUser.name + ", I was hoping we could arrange a time for me to visit " + dog.name
+                    parent.location=`mailto:${dogPostUser.email}?subject=${subject}&body=${emailBody}`
+                })
+
                 } else {
 
                     contactPosterWraper.innerHTML = `
                     <div class="contactPoster">
                     <div id="enquireButton">Login to Enquire about ${dog.name}</div> 
                     </div>            
-                    `                    
+                    `  
+                    const enquireButton = document.getElementById('enquireButton')
+                    enquireButton.addEventListener('click', e =>{
+                        loginForm()
+                })                  
 
                 }
 

@@ -26,14 +26,3 @@ function getFaveDogs() {
     });
   }
   
-  function urlFormat(url) {
-    const formattedUrl = [];
-  
-    for (link of url) {
-      link = link.replace("}", "").replace("{", "");
-      formattedUrl.push(link);
-    }
-  
-    return formattedUrl;
-  }
-  
