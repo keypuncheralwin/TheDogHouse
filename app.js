@@ -1,4 +1,5 @@
 const express = require("express");
+const eiows = require("eiows");
 
 
 const dotenv = require('dotenv')
@@ -14,16 +15,14 @@ const pgSession = connectPgSimple(expressSession);
 const petsController = require("./controllers/pets");
 const sessionController = require("./controllers/session");
 const userController= require("./controllers/user");
-const messagesController= require("./controllers/messages");
-
 
 const errorHandler = require('./middleware/error')
 const logMiddleware = require('./middleware/logger');
+const { Server } = require("eiows");
+
+
+
 const app = express();
-
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
 
 const port = process.env.PORT || 3000;
 
@@ -50,18 +49,18 @@ app.use("/api/pets", petsController);
 
 app.use("/api/user", userController);
 
-app.use("/api/messages", messagesController)
-
 
 
 
 app.use(errorHandler)
 
+const server = app.listen(port)
 
-io.on('connection', (socket, userid) => {
+
+const io = require("socket.io")(server);
+
+io.on('connection', (socket) => {
 	console.log('New user connected')
-
-  userid=socket.join(userid);
 
 	// //default username
 	// socket.username = "Anonymous"
@@ -72,10 +71,9 @@ io.on('connection', (socket, userid) => {
   //   })
 
     //listen on new_message
-    socket.on('new_message', (data,userid) => {
+    socket.on('new_message', (data) => {
         //broadcast the new message
-        setUserId=socket.join(userid);
-        io.sockets.emit(setUserId).to('new_message', {message : data.message, username : socket.username});
+        io.sockets.emit('new_message', {message : data.message, username : socket.username});
     })
 
     //listen on typing
@@ -83,11 +81,3 @@ io.on('connection', (socket, userid) => {
     	socket.broadcast.emit('typing', {username : socket.username})
     })
 })
-
-
-const server = http.listen(port, function() {
-  console.log(`listening on *: https://localhost:${port}`);
-});
-
-
-

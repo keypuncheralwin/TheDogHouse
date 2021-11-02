@@ -1,7 +1,7 @@
 const db = require('../database/db')
 
 const Favourites = {
-    getFavByUserID(user_id) {
+    getFavIDByUserID(user_id) {
       const sql = "SELECT dog_id FROM favourites WHERE user_id = $1";
       const values = [user_id];
       return db.query(sql,values).then((dbRes) => dbRes.rows);
@@ -15,6 +15,14 @@ const Favourites = {
       const sql = "DELETE FROM favourites WHERE dog_id = $1";
       const values = [dog_id];
       return db.query(sql,values).then((dbRes) => dbRes.rows);
+    },
+
+    getFaveDogById(user_id){
+      const sql = "SELECT * FROM dogs INNER JOIN favourites ON dogs.id = favourites.dog_id WHERE favourites.user_id=$1;";
+      const values = [user_id];
+      return db.query(sql,values).then((dbRes) => dbRes.rows);
+
+
     }
   };
 
