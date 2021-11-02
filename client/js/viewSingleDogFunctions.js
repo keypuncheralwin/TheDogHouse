@@ -67,8 +67,7 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 <div id="posterId" class="rounded">Poster Id: ${dog.user_id}</div>
                 <div id="posterName" class="rounded">Posted By: ${dogPostUser.name}</div>
                 </div>
-                <div class="contactPoster">
-                <div id="enquireButton">Enquire about ${dog.name}</div>
+                <div class="contactPoster" id="contact-poster">
        
                 </div>            
                 `
@@ -81,12 +80,16 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 // })
 
                 axios.get(`api/pets/user/dogs/${dog.id}`).then((res)=>{
+                    button=document.createElement('contact-poster')
+                    button.setAttribute("id", "enquireButton")
+                    div=document.getElementById("contact-poster")
+                    button.textContent=`Enquire about ${dog.name}`
                     const userAndDog=res.data
                     console.log(res.data)
-                    messageInApp=document.getElementById("enquireButton")
-                    messageInApp.addEventListener("click", (e)=>{
+                    button.addEventListener("click", (e)=>{
                         getMessageProfile(userAndDog)
                     })
+                    div.append(button)
                 
                 }).catch(err=>console.log(err))
 
