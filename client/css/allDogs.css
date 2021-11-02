@@ -80,7 +80,6 @@
 .allDogsWrapper{
     display: grid;
     place-items: center;
-    /* background-color: rgba(0, 0, 0, 0.644); */
     padding: 10px;
     border-radius: 5px;
     

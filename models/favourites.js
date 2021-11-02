@@ -11,9 +11,9 @@ const Favourites = {
       const values = [user_id,dog_id];
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },
-    deleteFavByUserID(user_id) {
-      const sql = "DELETE FROM favourites WHERE user_id = $1";
-      const values = [user_id];
+    deleteFavByUserID(dog_id) {
+      const sql = "DELETE FROM favourites WHERE dog_id = $1";
+      const values = [dog_id];
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },
 
