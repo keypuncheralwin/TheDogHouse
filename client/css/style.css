@@ -39,7 +39,7 @@ body{
 
 
 #content{
-    background-color: #f7f7ff;
+    background-color: white;
     display: grid;
     justify-content: center;
     overflow-x: hidden;
