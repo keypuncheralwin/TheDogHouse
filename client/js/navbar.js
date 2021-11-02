@@ -4,11 +4,6 @@ const openMenu = document.querySelector(".openMenu");
 
 function createNav() {
 
-  
- 
-
-
-
   axios.get(`/api/sessions`)
     .then((response) => {
       console.log('user logged in')
@@ -31,6 +26,11 @@ function createNav() {
         accountForm();
       });
 
+      messages.addEventListener("click", ()=>{
+        close()
+        getAllMessages()
+      })
+
       openMenu.addEventListener("click", show);
       closeMenu.addEventListener("click", close);
     
@@ -42,6 +42,8 @@ function createNav() {
       function close() {
         mainMenu.style.top = "-100%";
       }
+
+      
     })
     .catch((err) => {
       console.log('user not logged in')

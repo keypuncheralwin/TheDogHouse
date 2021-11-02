@@ -31,4 +31,31 @@ router.get("/user/:user_id", (req, res) => {
     })
 });
 
+router.get("/getAllMessages", (req, res)=>{
+  user_id=req.session.user_id
+  console.log(user_id)
+  Messages.getAllMessags(user_id).then((allMessages)=>{
+    console.log(allMessages)
+    speakingTo=[]
+    for(i of allMessages){
+      if(i["sender_id"]===user_id){
+        if(speakingTo.includes(i["recipient_id"])){
+          continue;
+        }else{
+          speakingTo.push(i["recipient_id"])
+        }
+      }else if(i["recipient_id"]===user_id){
+        if(speakingTo.includes(i["sender_id"])){
+          continue;
+        }else{
+          speakingTo.push(i["sender_id"])
+        }
+      }
+    }
+    speakingTo
+      res.json({array: speakingTo})
+  })
+
+})
+
 module.exports = router;
