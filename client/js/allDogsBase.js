@@ -89,11 +89,18 @@ function viewAllDogs() {
     container.append(allDogsWrapper)
     allDogsWrapper.append(allDogsContainer)
 
+    //show loading spinner while waiting for axios request
+    const loader = document.createElement('div')
+    loader.classList.add('loader')
+    loader.innerHTML = '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>'
+    filterStatusContainer.after(loader)
+
 
 
 
     //checking if user is logged in
     axios.get(`/api/sessions`).then((response) => {
+        
         console.log('user logged in')
         //since user is logged in proceed to access their favourites
         axios.get("api/pets/favourites/dogs").then((response) => {
@@ -134,7 +141,7 @@ function viewAllDogs() {
                 filterEvent(state_code, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
 
-
+                loader.remove()
             }).catch((err) => {
                 console.log(err)
                 console.log('Error retriving all dogs')
@@ -153,6 +160,7 @@ function viewAllDogs() {
 
 
     }).catch((err) => {
+        
         //user is not logged in
         console.log('user NOT logged in')
         //access all dog posts
@@ -193,7 +201,7 @@ function viewAllDogs() {
             //drop down filter for gender
             filterEvent(state_code, age, breed, gender, state_code, minPrice, maxPrice, dogName, dogs, allDogsContainer, favAlertContainer, favAlertText)
 
-
+            loader.remove()
         })
 
     })

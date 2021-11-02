@@ -20,6 +20,8 @@ function dogById(dogId){
     const singleDogHeader = document.createElement('div')
     singleDogHeader.classList.add('singleDogHeader')
     singleDogContainer.append(singleDogHeader)
+    //show loading spinner while waiting for axios request
+    singleDogHeader.innerHTML = '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>'
 
     const contactPosterWraper = document.createElement('div')
     contactPosterWraper.classList.add('contactPosterWraper')
