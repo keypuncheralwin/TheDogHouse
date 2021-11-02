@@ -68,16 +68,27 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 <div id="posterName" class="rounded">Posted By: ${dogPostUser.name}</div>
                 </div>
                 <div class="contactPoster">
-                <div id="enquireButton">Enquire about ${dog.name}</div> 
+                <div id="enquireButton">Enquire about ${dog.name}</div>
+       
                 </div>            
                 `
 
-                const enquireButton = document.getElementById('enquireButton')
-                enquireButton.addEventListener('click', e =>{
-                    const subject = `enquiring about your lovely dog ${dog.name}`
-                    const emailBody = "Hey " + dogPostUser.name + ", I was hoping we could arrange a time for me to visit " + dog.name
-                    parent.location=`mailto:${dogPostUser.email}?subject=${subject}&body=${emailBody}`
-                })
+                // const enquireButton = document.getElementById('enquireButton')
+                // enquireButton.addEventListener('click', e =>{
+                //     const subject = `enquiring about your lovely dog ${dog.name}`
+                //     const emailBody = "Hey " + dogPostUser.name + ", I was hoping we could arrange a time for me to visit " + dog.name
+                //     parent.location=`mailto:${dogPostUser.email}?subject=${subject}&body=${emailBody}`
+                // })
+
+                axios.get(`api/pets/user/dogs/${dog.id}`).then((res)=>{
+                    const userAndDog=res.data
+                    console.log(res.data)
+                    messageInApp=document.getElementById("enquireButton")
+                    messageInApp.addEventListener("click", (e)=>{
+                        getMessageProfile(userAndDog)
+                    })
+                
+                }).catch(err=>console.log(err))
 
                 } else {
 
