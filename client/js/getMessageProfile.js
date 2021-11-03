@@ -1,6 +1,6 @@
-function getAllMessagesBetweenUsers(){
+function getAllMessagesBetweenUsers(userdata) {
     console.log(userdata);
-    nameOfUser = userdata[0].name;
+    nameOfUser = userdata.name;
     const container = document.getElementById("container");
     console.log(container);
     container.innerHTML = "";
@@ -17,11 +17,11 @@ function getAllMessagesBetweenUsers(){
     `
   
   
-    getMessages(userdata[0].user_id);
+    getMessages(userdata.id);
   
     form.addEventListener("submit", (e)=> {
       e.preventDefault()
-      recip_Id = userdata[0].user_id;
+      recip_Id = userdata.id;
       currentTime = getFormattedDate();
       console.log(currentTime)
       const formData = new FormData(form);
@@ -83,5 +83,28 @@ function getAllMessagesBetweenUsers(){
         
       }
     });
-
-}
+  }
+  
+  // function getUser(id){
+  
+  // }
+  
+  function getFormattedDate() {
+    let current_datetime = new Date();
+    let formatted_date =
+    current_datetime.getFullYear() +
+    "-" +
+    (current_datetime.getMonth() + 1) +
+    "-" +
+    current_datetime.getDate() +
+    "T" +
+    current_datetime.getHours() +
+    ":" +
+    current_datetime.getMinutes() +
+    ":" +
+    current_datetime.getSeconds()+
+    ".000Z"
+    ;
+  
+    return formatted_date;
+  }
