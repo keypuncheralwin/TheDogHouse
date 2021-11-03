@@ -22,10 +22,14 @@ function getAllMessages() {
           console.log(usersInfo)
           const arrMessages = responses[1].data;
           console.log(arrMessages)
+          div.setAttribute("userId",usersInfo[0])
 
-          div.addEventListener(("click"), (e)=>{
-            getAllMessagesBetweenUsers(usersInfo[0])
-        })
+          div.addEventListener(("click"), (event)=>{
+            userInfo=event.target.getAttribute("userId")
+            getAllMessagesBetweenUsers(userInfo)
+
+          }
+        )
 
           user_name = document.createElement("p");
           user_name.textContent = usersInfo[0].name;
