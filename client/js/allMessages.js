@@ -4,7 +4,8 @@ function getAllMessages() {
     console.log(peopleUserIsChattingTo);
     const container = document.getElementById("container");
     console.log(container);
-    container.innerHTML = "";
+    container.innerHTML = `<div class="blockWrapper"><div id='inside-box' class="inside-box"></div></div>`;
+    insideBox=document.getElementById('inside-box')
 
     // getuserDetails= `api/messages/user/${i}`
     // getMessageDetails=`api/messages/getMessages/${i}`
@@ -18,6 +19,11 @@ function getAllMessages() {
       axios.all([requestOne, requestTwo]).then(
         axios.spread((...responses) => {
           div = document.createElement("div");
+          div.classList.add("friend")
+          var img = document.createElement('img'); 
+          img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEH6tEooi7t25bGaYJc9PYKrPBpwPjOy_nrXKHDrgeLgkoC-ZkfpI3MgcUjiL3ueZZKXA&usqp=CAU'; 
+          div.append(img)
+
           const usersInfo = responses[0].data;
           console.log(usersInfo)
           const arrMessages = responses[1].data;
@@ -32,6 +38,7 @@ function getAllMessages() {
         )
 
           user_name = document.createElement("p");
+          user_name.classList.add("message-user-name")
           user_name.textContent = usersInfo[0].name;
           div.append(user_name);
 
@@ -40,11 +47,12 @@ function getAllMessages() {
           console.log(lastItem);
           console.log(lastItem[0]);
           lastText = document.createElement("p");
+          lastText.classList.add("last-text-received")
           lastText.textContent = lastItem[0].body;
           div.appendChild(lastText);
 
        
-          container.append(div)
+          insideBox.append(div)
         })
       );
 
