@@ -25,6 +25,12 @@ const Dogs = {
       const values=[dog_id]
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },
+
+    editDog(name, breed, age, gender, state_code, description, imageUrls, price, user_id, id) {
+      const sql = "UPDATE dogs SET name=$1, breed=$2, age=$3, gender=$4, state_code=$5, description=$6, image=$7, price=$8, user_id=$9 WHERE id=$10";
+      const values = [name, breed, age, gender, state_code, description, imageUrls, price, user_id, id];
+      return db.query(sql,values).then((dbRes) => dbRes.rows);
+    },
     
     //getting dog info by the dog id 
     getDogById(dog_id){

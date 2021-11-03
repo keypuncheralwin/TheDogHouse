@@ -79,10 +79,9 @@ function editDogById(dogId){
     const editDogImagesContainer = document.getElementById('editDogImagesContainer')                
     const urlArray = dog.image.split(',')
     const formattedUrl = urlFormat(urlArray)
-    const tempImageUrls = []
+    const tempImageUrls = [] //for temporarily storing all image Urls retrived from database
     for (url of formattedUrl){
-        console.log(url)
-        tempImageUrls.push(url)
+        tempImageUrls.push(url) //pushing all images into to temp array
         const editDogImages = document.createElement('div')
         editDogImages.classList.add('editDogImages')
         editDogImages.innerHTML = `<img class="editImg" src=${url}>`
@@ -93,15 +92,20 @@ function editDogById(dogId){
         editDogImages.append(deleteImg)
 
         deleteImg.addEventListener('click', e => {
-            tempImageUrls.pop(url)
+            //removing the deleted image from list of urls
+            
+            const position = tempImageUrls.indexOf(url) 
+            tempImageUrls.splice(position,1)
             deleteImg.remove()
             editDogImages.remove()
+            console.log(tempImageUrls)
         })
                      
     }
+    console.log(tempImageUrls)
 
     const imageUrls = []
-    uploadUppyEdit(imageUrls)
+    uploadUppyEdit(imageUrls) //returns an array of the uploaded image urls
     const breedSelection = document.getElementById('breed')
     populateBreed(breedSelection)
 
@@ -112,21 +116,23 @@ function editDogById(dogId){
         console.log(data)
         const status = document.getElementById('status')
         
+        //removing all the extra quotation marks from url
         tempImageUrls.forEach(url => {
-            imageUrls.push(url)
+            const plainUrl = url.replace(/['"]+/g, '');
+            imageUrls.push(plainUrl)
         })
-
+        
+        
         console.log(imageUrls)
-
-    
         if (imageUrls.length >= 1) {
           data['imageUrls'] = imageUrls
-        //   axios.post('/api/pets/add', data).then(() => {
-        //     console.log('dog added to database')
+          data['id'] = dogId
+          axios.put('/api/pets/user/dog/edit', data).then(() => {
+            console.log('dog added to database')
             
-        //   }).catch(err => {
-        //     status.textContent = err.response.data.message
-        //   })
+          }).catch(err => {
+            status.textContent = err.response.data.message
+          })
         } else{
             editDogContainer.scrollIntoView()
             status.textContent = `Please add at least one photo of ${data.name}`
