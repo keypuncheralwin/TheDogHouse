@@ -5,9 +5,15 @@ function getAllMessagesBetweenUsers(userdata) {
     console.log(container);
     container.innerHTML = "";
     container.innerHTML = `
-      <p>${nameOfUser}<p>
+      <p id="title-bar">${nameOfUser}<p>
       <div id="allMessages"></div>
       `;
+
+    document.getElementById("title-bar").addEventListener("click", (e)=>{
+        getUserProfile(userdata)
+    }
+
+    )
   
     const form=document.createElement('form')
     form.innerHTML=`

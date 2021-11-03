@@ -138,6 +138,17 @@ router.get("/user/dogs", (req,res)=>{
   })
 })
 
+router.get("/user/dogs/:user_id", (req,res)=>{
+  const user_id = req.params.user_id
+  console.log(user_id)
+  Dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
+    res.json(dogs);
+
+  })
+})
+
+
+
 router.put("/user/dog/edit", (req,res)=>{
   
   const { name, breed, age, gender, state_code, description, imageUrls, price, id} = req.body
