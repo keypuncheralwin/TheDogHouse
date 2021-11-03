@@ -138,6 +138,17 @@ router.get("/user/dogs", (req,res)=>{
   })
 })
 
+router.get("/user/dogs/:user_id", (req,res)=>{
+  const user_id = req.params.user_id
+  console.log(user_id)
+  Dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
+    res.json(dogs);
+
+  })
+})
+
+
+
 router.put("/user/dog/edit", (req,res)=>{
   
   const { name, breed, age, gender, state_code, description, imageUrls, price, id} = req.body
@@ -170,7 +181,7 @@ router.delete("/user/dog/delete/:id", (req,res)=>{
   
 })
 
-router.get("/user/dogs/:dogid", (req,res)=>{
+router.get("/dogs/poster/:dogid", (req,res)=>{
   const dog_id = req.params.dogid
   Dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
     console.log(dogs_and_user)
@@ -181,6 +192,7 @@ router.get("/user/dogs/:dogid", (req,res)=>{
       return res.status(400).json({ message: "You can't message yourself lol" });
 
     }else{
+      dogs_and_user
       res.json(dogs_and_user);
     }
     
