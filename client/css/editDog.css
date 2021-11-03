@@ -4,16 +4,20 @@
     display: grid;
     padding: 10px 0 10px 0;
     border-radius: 5px;
+    
 }
 
 #editDogImagesContainer{
     display: grid;
     grid-gap: 10px;
+    padding: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
 }
 
 .editDogImages{
     position: relative;
+    
 }
 
 .deleteImg{
