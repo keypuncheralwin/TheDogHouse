@@ -11,22 +11,22 @@ function getAllMessages() {
 
     for (i of peopleUserIsChattingTo) {
       console.log(i);
-      div = document.createElement("div");
       getuserDetails = `api/messages/user/${i}`;
       getMessageDetails = `api/messages/getMessages/${i}`;
       requestOne = axios.get(getuserDetails);
       requestTwo = axios.get(getMessageDetails);
       axios.all([requestOne, requestTwo]).then(
         axios.spread((...responses) => {
+          div = document.createElement("div");
           const usersInfo = responses[0].data;
           console.log(usersInfo)
           const arrMessages = responses[1].data;
           console.log(arrMessages)
-          div.setAttribute("userId",usersInfo[0])
+          div.setAttribute("userI",usersInfo[0])
 
-          div.addEventListener(("click"), (event)=>{
-            userInfo=event.target.getAttribute("userId")
-            getAllMessagesBetweenUsers(userInfo)
+          div.addEventListener('click', (event)=>{
+            console.log(responses[0].data)
+            getAllMessagesBetweenUsers(responses[0].data)
 
           }
         )

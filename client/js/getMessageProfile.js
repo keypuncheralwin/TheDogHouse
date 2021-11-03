@@ -1,6 +1,6 @@
 function getAllMessagesBetweenUsers(userdata) {
-    console.log(userdata);
-    nameOfUser = userdata.name;
+    console.log(userdata[0]);
+    nameOfUser = userdata[0].name;
     const container = document.getElementById("container");
     console.log(container);
     container.innerHTML = "";
@@ -10,7 +10,7 @@ function getAllMessagesBetweenUsers(userdata) {
       `;
 
     document.getElementById("title-bar").addEventListener("click", (e)=>{
-        getUserProfile(userdata)
+        getUserProfile(userdata[0])
     }
 
     )
@@ -23,17 +23,17 @@ function getAllMessagesBetweenUsers(userdata) {
     `
   
   
-    getMessages(userdata.id);
+    getMessages(userdata[0].id);
   
     form.addEventListener("submit", (e)=> {
       e.preventDefault()
-      recip_Id = userdata.id;
+      recip_Id = userdata[0].id;
       currentTime = getFormattedDate();
       console.log(currentTime)
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries())
       console.log(data)
-      userDataBeingPassed=userdata
+      userDataBeingPassed=userdata[0]
       insertMessages(data, recip_Id, currentTime, userDataBeingPassed);
     });
   
