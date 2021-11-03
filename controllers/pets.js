@@ -1,15 +1,15 @@
 const express = require("express");
 const formidable = require('formidable');
-const users = require("../models/users");
-const dogs = require("../models/dogs");
-const favourites = require("../models/favourites");
+
 const dotenv = require('dotenv')
 dotenv.config();
+
 const router = express.Router();
-console.log(process.env.API_SECRET)
+
 var cloudinary = require('cloudinary').v2;
 const Dogs = require("../models/dogs");
 const Favourites = require("../models/favourites");
+
 cloudinary.config({ 
   cloud_name: process.env.CLOUD_NAME, 
   api_key: process.env.API_KEY, 
@@ -132,15 +132,30 @@ router.post("/images", (req, res,next) => {
 router.get("/user/dogs", (req,res)=>{
   const user_id = req.session.user_id
   console.log(user_id)
-  dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
+  Dogs.getDogThatUserHasAdded(user_id).then((dogs)=>{
     res.json(dogs);
 
   })
 })
 
+router.put("/user/dog/edit", (req,res)=>{
+  
+  const { name, breed, age, gender, state_code, description, imageUrls, price, id} = req.body
+  const user_id = req.session.user_id
+  
+  Dogs.editDog(name, breed, age, gender, state_code, description, imageUrls, price, user_id, id).then((dogs)=>{
+    console.log("successfully updated dog listing")
+    res.json({message: "successfully updated dog listing"});
+
+  }).catch(err => {
+    console.log(err)
+  })
+
+})
+
 router.get("/user/dogs/:dogid", (req,res)=>{
   const dog_id = req.params.dogid
-  dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
+  Dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
     console.log(dogs_and_user)
     console.log(dogs_and_user[0].user_id)
     console.log(req.session.user_id)
