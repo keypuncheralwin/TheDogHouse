@@ -23,6 +23,10 @@ function getAllMessages() {
           const arrMessages = responses[1].data;
           console.log(arrMessages)
 
+          div.addEventListener(("click"), (e)=>{
+            getAllMessagesBetweenUsers(usersInfo[0])
+        })
+
           user_name = document.createElement("p");
           user_name.textContent = usersInfo[0].name;
           div.append(user_name);
@@ -35,9 +39,7 @@ function getAllMessages() {
           lastText.textContent = lastItem[0].body;
           div.appendChild(lastText);
 
-          div.addEventListener(("click"), (e)=>{
-              getAllMessagesBetweenUsers(usersInfo[0])
-          })
+       
           container.append(div)
         })
       );

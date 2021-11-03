@@ -21,7 +21,11 @@ const Dogs = {
 
 
     getDogAndPoster(dog_id){
-      const sql = "SELECT * FROM dogs INNER JOIN users ON dogs.user_id = users.id WHERE dogs.id=$1;"
+      const sql = "SELECT dogs.id AS dog_id, dogs.name AS dog_name, dogs.breed,"
+       +"dogs.age, dogs.gender, dogs.state_code AS dogs_state, dogs.description,"
+       +"dogs.image, dogs.price, users.id AS user_id, users.name, users.email, "
+       +"users.state_code AS users_state, users.fact"
+       +" FROM dogs INNER JOIN users ON dogs.user_id = users.id WHERE dogs.id=$1;"
       const values=[dog_id]
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },

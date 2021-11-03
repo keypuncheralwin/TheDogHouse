@@ -79,7 +79,7 @@ function viewDogPost(singleDogHeader, favs, dog, dogPostUser, singleDogImageCont
                 //     parent.location=`mailto:${dogPostUser.email}?subject=${subject}&body=${emailBody}`
                 // })
 
-                axios.get(`api/pets/user/dogs/${dog.id}`).then((res)=>{
+                axios.get(`api/pets/dogs/poster/${dog.id}`).then((res)=>{
                     button=document.createElement('contact-poster')
                     button.setAttribute("id", "enquireButton")
                     div=document.getElementById("contact-poster")

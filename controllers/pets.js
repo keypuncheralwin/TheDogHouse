@@ -181,7 +181,7 @@ router.delete("/user/dog/delete/:id", (req,res)=>{
   
 })
 
-router.get("/user/dogs/:dogid", (req,res)=>{
+router.get("/dogs/poster/:dogid", (req,res)=>{
   const dog_id = req.params.dogid
   Dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
     console.log(dogs_and_user)
@@ -192,6 +192,7 @@ router.get("/user/dogs/:dogid", (req,res)=>{
       return res.status(400).json({ message: "You can't message yourself lol" });
 
     }else{
+      dogs_and_user
       res.json(dogs_and_user);
     }
     
