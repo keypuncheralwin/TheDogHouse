@@ -153,6 +153,23 @@ router.put("/user/dog/edit", (req,res)=>{
 
 })
 
+router.delete("/user/dog/delete/:id", (req,res)=>{
+  const dog_id= req.params.id
+  console.log(req.session.user_id)
+  if (req.session.user_id){
+    Dogs.deleteByDogID(dog_id).then((dogs)=>{
+      console.log("successfully removed dog listing")
+      res.json({message: "successfully removed dog listing"});
+  
+    }).catch(err => {
+      console.log(err)
+    })
+  }else{
+    res.json({message: 'Please login to make changes to the databse'})
+  }
+  
+})
+
 router.get("/user/dogs/:dogid", (req,res)=>{
   const dog_id = req.params.dogid
   Dogs.getDogAndPoster(dog_id).then((dogs_and_user)=>{
