@@ -70,6 +70,7 @@ function addPetForm() {
       data['imageUrls'] = imageUrls
       axios.post('/api/pets/add', data).then(() => {
         console.log('dog added to database')
+        viewAllDogs()
         
       }).catch(err => {
         status.textContent = err.response.data.message

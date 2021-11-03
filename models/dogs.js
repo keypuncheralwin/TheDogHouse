@@ -31,6 +31,12 @@ const Dogs = {
       const values = [name, breed, age, gender, state_code, description, imageUrls, price, user_id, id];
       return db.query(sql,values).then((dbRes) => dbRes.rows);
     },
+
+    deleteByDogID(dog_id) {
+      const sql = "DELETE FROM dogs WHERE id = $1";
+      const values = [dog_id];
+      return db.query(sql,values).then((dbRes) => dbRes.rows);
+    },
     
     //getting dog info by the dog id 
     getDogById(dog_id){
