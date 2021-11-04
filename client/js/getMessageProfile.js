@@ -1,4 +1,3 @@
-
 function getAllMessagesBetweenUsers(userdata) {
   console.log(userdata[0]);
   nameOfUser = userdata[0].name;
@@ -23,12 +22,12 @@ function getAllMessagesBetweenUsers(userdata) {
   })
 
   document.getElementById("title-bar").addEventListener("click", (e) => {
-    getUserProfile(userdata);
+    getUserProfile(userdata[0]);
   });
 
 
 
-  getMessages(userdata);
+  getMessages(userdata[0].id);
 
   messagesForm=document.getElementById("message-form")
 
@@ -56,10 +55,7 @@ function insertMessages(body, recipId, time, userdata) {
 }
 
 function getMessages(chatting_to) {
-  console.log(chatting_to)
-  userData=chatting_to
-  id=chatting_to[0].id
-  axios.get(`api/messages/getMessages/${id}`).then((message) => {
+  axios.get(`api/messages/getMessages/${chatting_to}`).then((message) => {
     const messages = document.getElementById("allMessages");
     const allMessages = message.data;
 
@@ -71,19 +67,12 @@ function getMessages(chatting_to) {
 
       const sender = document.createElement("p");
       senderId = i.sender_id;
-      if(id===senderId){
+      if(chatting_to===senderId){
         div.classList.add("bubble-left")
 
       }else{
-        div.classList.add("bubble-right")
-        const unsend=document.createElement('span')
-        unsend.textContent="UNSEND"
-        unsend.addEventListener('click', (e)=>{
-          unsendMessage(i.id, userData)
-        }
-        )
 
-        div.append(unsend)
+        div.classList.add("bubble-right")
 
       }
       console.log(senderId);
@@ -112,15 +101,6 @@ function getMessages(chatting_to) {
 // function getUser(id){
 
 // }
-
-function unsendMessage(message_id, user_data){
-  axios.delete(`api/messages/user/${message_id}`).then((res)=>{
-    console.log("delted")
-    getAllMessagesBetweenUsers(user_data)
-
-  })
-
-}
 
 function getFormattedDate() {
   let current_datetime = new Date();
