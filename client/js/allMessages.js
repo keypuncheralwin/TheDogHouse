@@ -6,6 +6,18 @@ function getAllMessages() {
     console.log(container);
     container.innerHTML = `<div class="blockWrapper"><div id='inside-box' class="inside-box"></div></div>`;
     insideBox=document.getElementById('inside-box')
+    if(peopleUserIsChattingTo.length===0){
+      div1=document.createElement('div')
+      div1.classList.add("outer-div-messages")
+
+      element=document.createElement('p')
+      element.textContent="You have no messages"
+      element.classList.add("no-messages");
+      div1.append(element)
+
+      insideBox.append(div1)
+
+    }
 
     // getuserDetails= `api/messages/user/${i}`
     // getMessageDetails=`api/messages/getMessages/${i}`
