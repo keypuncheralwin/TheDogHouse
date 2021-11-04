@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 body{
     background-color: #f7f7ff;
-    font-family: 'Lexend Deca', sans-serif;
+    font-family: 'Concert One', cursive;
     overflow: hidden;
 }
 
@@ -39,7 +40,6 @@ body{
 
 
 #content{
-    background: url(../images/backgrounds/multipleDogs2.jpg);
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size:cover;/* Resize the background image to cover the entire container */
@@ -54,6 +54,14 @@ body{
 }
 
 
+
+.landingBackgroud{
+    background: url(../images/backgrounds/landingBackground.png);
+}
+
+.regularBackground{
+    background: url(../images/backgrounds/regularBackground.jpg);
+}
 
 @media(max-width: 800px) {
     
