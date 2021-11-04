@@ -48,7 +48,9 @@ function getAllMessages() {
           console.log(lastItem[0]);
           lastText = document.createElement("p");
           lastText.classList.add("last-text-received")
-          lastText.textContent = lastItem[0].body;
+          lastWords= lastItem[0].body
+          finalExchange= lastWords.substring(0, 13);
+          lastText.textContent = finalExchange;
           div.appendChild(lastText);
 
        

@@ -12,7 +12,6 @@ function getMessageProfile(userdata) {
   <input type="submit" class="message-submit" value="SEND">
   </form>
   </div>
-
   `;
 
   document.getElementById("title-bar").addEventListener("click", (e) => {
@@ -61,30 +60,35 @@ function getMessagesFromDog(chatting_to) {
       const sender = document.createElement("p");
       senderId = i.sender_id;
       console.log(senderId);
-      userName = axios.get(`api/messages/user/${senderId}`).then((res) => {
-        console.log(res.data[0].name);
-        return res.data[0].name;
-      });
 
-      userName.then((name) => {
-        console.log(name);
-        sender.textContent = name;
-        div.insertBefore(sender, div.childNodes[0]);
-      });
+      if(chatting_to===senderId){
+        div.classList.add("bubble-left")
 
-      const timeSent = i.time;
-      console.log(timeSent);
-      const formatting = timeSent.replace("T", " ");
-      const formattedTime = formatting.replace(".000Z", "");
-      const timestamp = document.createElement("p");
-      timestamp.textContent = formattedTime;
-      div.append(formattedTime);
+      }else{
+
+        div.classList.add("bubble-right")
+
+      }
+
 
       const message_body = i.body;
       const body = document.createElement("p");
       body.textContent = message_body;
+      body.classList.add("text-body")
       div.append(body);
 
+
+      const timeSent = i.time;
+      console.log(timeSent);
+      const formatting = timeSent.replace("T", " ");
+      const formatting2 = formatting.replace(".000Z", "");
+      const formatting3= formatting2.replace(/-/g, "/")
+      const formattedTime= formatting3.slice(5)
+      const timestamp = document.createElement("p");
+      timestamp.textContent = formattedTime;
+      div.append(timestamp);
+
+     
       messages.append(div);
     }
   });

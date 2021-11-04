@@ -8,8 +8,10 @@ function getAllMessagesBetweenUsers(userdata) {
   <form id="message-form">
   <p id="title-bar">${nameOfUser}</p>
   <div id="allMessages"></div>
+  <div class="send-div">
   <input type="text" name="body" class="feedback-input-messages"required>
   <input type="submit" class="message-submit" value="SEND">
+  </div>
   </form>
   </div>
 
@@ -69,16 +71,6 @@ function getMessages(chatting_to) {
 
       }
       console.log(senderId);
-      // userName = axios.get(`api/messages/user/${senderId}`).then((res) => {
-      //   console.log(res.data[0].name);
-      //   return res.data[0].name;
-      // });
-
-      // userName.then((name) => {
-      //   console.log(name);
-      //   sender.textContent = name;
-      //   div.insertBefore(sender, div.childNodes[0]);
-      // });
 
       const message_body = i.body;
       const body = document.createElement("p");
@@ -89,7 +81,9 @@ function getMessages(chatting_to) {
       const timeSent = i.time;
       console.log(timeSent);
       const formatting = timeSent.replace("T", " ");
-      const formattedTime = formatting.replace(".000Z", "");
+      const formatting2 = formatting.replace(".000Z", "");
+      const formatting3= formatting2.replace(/-/g, "/")
+      const formattedTime= formatting3.slice(5)
       const timestamp = document.createElement("p");
       timestamp.textContent = formattedTime;
       div.append(timestamp);
