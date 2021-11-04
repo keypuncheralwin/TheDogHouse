@@ -56,21 +56,35 @@ function getMessages(chatting_to) {
 
     for (i of allMessages) {
       const div = document.createElement("div");
-      div.classList.add("bubble")
+      // div.classList.add("bubble-left")
 
       const sender = document.createElement("p");
       senderId = i.sender_id;
-      console.log(senderId);
-      userName = axios.get(`api/messages/user/${senderId}`).then((res) => {
-        console.log(res.data[0].name);
-        return res.data[0].name;
-      });
+      if(chatting_to===senderId){
+        div.classList.add("bubble-left")
 
-      userName.then((name) => {
-        console.log(name);
-        sender.textContent = name;
-        div.insertBefore(sender, div.childNodes[0]);
-      });
+      }else{
+
+        div.classList.add("bubble-right")
+
+      }
+      console.log(senderId);
+      // userName = axios.get(`api/messages/user/${senderId}`).then((res) => {
+      //   console.log(res.data[0].name);
+      //   return res.data[0].name;
+      // });
+
+      // userName.then((name) => {
+      //   console.log(name);
+      //   sender.textContent = name;
+      //   div.insertBefore(sender, div.childNodes[0]);
+      // });
+
+      const message_body = i.body;
+      const body = document.createElement("p");
+      body.textContent = message_body;
+      body.classList.add("text-body")
+      div.append(body);
 
       const timeSent = i.time;
       console.log(timeSent);
@@ -78,12 +92,7 @@ function getMessages(chatting_to) {
       const formattedTime = formatting.replace(".000Z", "");
       const timestamp = document.createElement("p");
       timestamp.textContent = formattedTime;
-      div.append(formattedTime);
-
-      const message_body = i.body;
-      const body = document.createElement("p");
-      body.textContent = message_body;
-      div.append(body);
+      div.append(timestamp);
 
       messages.append(div);
     }
@@ -111,3 +120,4 @@ function getFormattedDate() {
     ".000Z";
   return formatted_date;
 }
+
