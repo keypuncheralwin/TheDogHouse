@@ -31,13 +31,6 @@ router.get("/user/:user_id", (req, res) => {
     })
 });
 
-router.delete("/user/:message_id", (req, res) => {
-  message_id=req.params.message_id
-  Messages.deleteMessage(message_id).then(()=>{
-      res.json({message: "messsage was deleted"});
-  })
-});
-
 router.get("/getAllMessages", (req, res)=>{
   user_id=req.session.user_id
   console.log(user_id)
