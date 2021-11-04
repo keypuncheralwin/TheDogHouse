@@ -1,97 +1,173 @@
-.inside-box{
-    width: 500px;
-    height: 600px;
-    box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
+.inside-box {
+  width: 500px;
+  height: 600px;
+  box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
 }
 
-.friend{
-	height:70px;
-	border-bottom:1px solid #e7ebee;		
-	position:relative;
+.friend {
+  height: 70px;
+  border-bottom: 1px solid #e7ebee;
+  position: relative;
 }
-.friend:hover{
-	background:#f1f4f6;
-	cursor:pointer;
-}
-
-.friend img{
-	width:40px;
-	border-radius:50%;
-	margin:15px;
-	float:left;
+.friend:hover {
+  background: #f1f4f6;
+  cursor: pointer;
 }
 
-.message-user-name{
-    font-family: sans-serif;
-    font-size: 19px;
-    padding-top: 10px;
-    font-weight: 600;
+.friend img {
+  width: 40px;
+  border-radius: 50%;
+  margin: 15px;
+  float: left;
+}
+
+.message-user-name {
+  font-family: sans-serif;
+  font-size: 19px;
+  padding-top: 10px;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 600px) {
-    .inside-box{
-        width:300px;
-    }
+  .inside-box {
+    width: 300px;
   }
+}
 
-  .message-submit{
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    width: 19%;
-    background: #CC6666;
+.message-submit {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  width: 19%;
+  background: #cc6666;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700;
+}
+
+.feedback-input-messages {
+  color: grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #cc6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 80%;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.allMessages {
+  color: black;
+}
+
+#message-form {
+  max-height: 70%;
+}
+
+#allMessages {
+  overflow-y: scroll;
+  height: 400px;
+  margin: 18px;
+  padding: 4px;
+}
+
+#title-bar {
+  height: 50px;
+  background: #cc6666;
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+  padding-left: 10 px;
+}
+
+#title-bar {
+  cursor: pointer;
+}
+
+/* .bubble{
+    display: block;
+    min-width: 150px;
+    padding: 8px;
+    font-size: 20px;
+    background-color: rgb(253, 253, 253);
     border-radius: 5px;
-    border: 0;
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: all 0.3s;
-    margin-top: -4px;
-    font-weight: 700;
-  }
-
-  .feedback-input-messages{
-    color: grey;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 5px;
-    line-height: 22px;
-    background-color: transparent;
-    border: 2px solid #CC6666;
-    transition: all 0.3s;
-    padding: 13px;
-    margin-bottom: 15px;
-    width: 80%;
-    box-sizing: border-box;
-    outline: 0;
-  }
-
-  .allMessages{
-      color: black;
-  }
-
-  #message-form{
-      max-height: 70%;
-
-  }
-
-  .allMessages{
-    overflow-y:scroll; 
-    height: 200px;
-  }
-
-  .title-bar{
-    height: 50px;
-    background: #cc6666;
-    font-size: 30px;
-    color: white;
-    font-weight: 600;
-    padding-left: 10 px;
-  }
-
-  .bubble {
-  
+    margin-bottom: 20px;
     color: black;
+    box-shadow: 0 1px 10px -3px #7b7c7c, 0 1px 5px -3px #8a8b8b;
+    float: left;
   
-  }
+
+  } */
+
+/* .bubble-left {
+  display: block;
+  max-width: 70%;
+  min-width: 10%;
+  display: inline-block;
+  font-size: 0.85em;
+  position: relative;
+  margin: 20% 0 3% 0;
+  animation: scaler 150ms ease-out;
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  font-weight: 500;
+  display: block;
+} */
+
+
+.bubble-left {
+  background-color: #444;
+  color: white;
+  font-size: .85em;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  margin: 1% 0;
+  max-width: 70%;
+  min-width: 10%;  
+  float: left;
+  word-wrap: break-word;
+  clear: both;
+  animation: scaler 150ms ease-out;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+} 
+
+.bubble-right {
+  background-color: #e5eaec;
+  color: #222;
+  font-size: .85em;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  margin: 1% 0;
+  max-width: 70%;
+  min-width: 10%;  
+  float: right;
+  word-wrap: break-word;
+  clear: both;
+  animation: scaler 150ms ease-out;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.text-body{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 7px;
+}
