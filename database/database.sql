@@ -35,4 +35,4 @@ CREATE TABLE messages(
     sender_id INTEGER NOT NULL REFERENCES users(id),
     recipient_id INTEGER NOT NULL REFERENCES users(id),
     time TIMESTAMPTZ  
-)
+);

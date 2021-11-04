@@ -1,19 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 input::-webkit-input-placeholder {
-    color: grey;
+    color: rgb(67, 67, 67);
 }
 
 input:-moz-placeholder {
-    color: grey;
+    color: rgb(67, 67, 67);
 }
 
 textarea::-webkit-input-placeholder {
-    color: grey;
+    color: rgb(67, 67, 67);
 }
 
 textarea:-moz-placeholder {
-    color: grey;
+    color: rgb(67, 67, 67);
 }
 
 .largeFont {
@@ -29,7 +29,7 @@ textarea:-moz-placeholder {
 
 form {
     color: #CC6666;
-    background-color: rgba(255, 255, 255, 0.392);
+    background-color: rgba(255, 255, 255, 0.954);
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
     padding: 30px;
     border-radius: 5px;
@@ -43,7 +43,7 @@ form {
 }
 
 .feedback-input {
-    color: grey;
+    color: rgb(67, 67, 67);
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -106,7 +106,7 @@ textarea {
 }
 
 #currency {
-    color: grey;
+    color: rgb(67, 67, 67);
     margin-right: 4px;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
@@ -126,7 +126,6 @@ textarea {
 @media(max-width: 800px) {
     form {
         margin: 10px auto;
-        background-color: rgba(0, 0, 0, 0);
         box-shadow: none;
         color: #CC6666;
         border-radius: 0;
@@ -135,12 +134,5 @@ textarea {
 
     .align {
         display: block;
-    }
-    .feedback-input {
-        color: grey;
-    }
-
-    #currency {
-        color: grey;
     }
 }

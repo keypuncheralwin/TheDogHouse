@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body{
-    background-color: black;
+    background-color: #f7f7ff;
     font-family: 'Lexend Deca', sans-serif;
     overflow: hidden;
 }
@@ -39,7 +39,10 @@ body{
 
 
 #content{
-    background-color: #f7f7ff;
+    background: url(../images/backgrounds/multipleDogs2.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size:cover;/* Resize the background image to cover the entire container */
     display: grid;
     justify-content: center;
     overflow-x: hidden;

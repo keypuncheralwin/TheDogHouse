@@ -9,11 +9,11 @@
 
 
 .singleDogContainer {
-    background-color: rgba(255, 255, 255, 0.392);
+    background-color: rgba(255, 255, 255, 0.712);
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
     box-sizing: border-box;
     padding: 20px;
-    color: grey;
+    color: rgb(67, 67, 67);
     /* margin: 30px 20px 30px 20px; */
     display: grid; 
     grid-template-rows: 0.7fr 0.3fr 0.2fr;

@@ -17,7 +17,7 @@
 }
 
 .filterStatus{
-    color: grey;
+    color: rgb(67, 67, 67);
     background-color: rgba(255, 255, 255, 0.644);
     padding: 10px;
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
@@ -41,15 +41,15 @@
 }
 
 #minPrice::-webkit-input-placeholder {
-    color: black;
+    color: rgb(67, 67, 67);
 }
 
 #maxPrice::-webkit-input-placeholder {
-    color: black;
+    color: rgb(67, 67, 67);
 }
 
 #dogName::-webkit-input-placeholder {
-    color: black;
+    color: rgb(67, 67, 67);
 }
 
 #dogStateFilter{
