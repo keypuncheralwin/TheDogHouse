@@ -1,7 +1,4 @@
 function loginForm(){
-  //changing background image
-  const content = document.getElementById('content')
-  content.classList.add('login')
 
     const container=document.getElementById("container")
     container.innerHTML=""

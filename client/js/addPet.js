@@ -1,6 +1,4 @@
 function addPetForm() {
-  const content = document.getElementById('content')
-  content.classList.add('addPetBackground')
   
   const container = document.getElementById('container')
   container.innerHTML = "";

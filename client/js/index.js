@@ -1,3 +1,6 @@
+const content = document.getElementById('content')
+
+
 
 createNav()
-viewAllDogs()
+landingPage()

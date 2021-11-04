@@ -1,9 +1,6 @@
 //Function that intialises the all dogs page
 
 function viewAllDogs() {
-    //changing background image
-    const content = document.getElementById('content')
-    content.classList.add('allDogsBackground')
 
 
     //accessing and clearing container

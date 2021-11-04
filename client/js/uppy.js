@@ -1,4 +1,5 @@
-
+//Js library used to manage the front end photo uploads
+//pass in an empty image array so it can be populated by the uploaded Urls
 
 function uploadUppy(imageUrls){
   const uppy = Uppy.Core({ autoProceed: false, restrictions: {
