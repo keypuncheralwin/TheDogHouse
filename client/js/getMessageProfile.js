@@ -6,7 +6,7 @@ function getAllMessagesBetweenUsers(userdata) {
 
   container.innerHTML = `<div class="blockWrapper">
   <form id="message-form">
-  <p id="title-bar">${nameOfUser}</p>
+  <p id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span>  ${nameOfUser}</p>
   <div id="allMessages"></div>
   <div class="send-div">
   <input type="text" name="body" class="feedback-input-messages"required>
@@ -16,6 +16,10 @@ function getAllMessagesBetweenUsers(userdata) {
   </div>
 
   `;
+
+  document.getElementById("back-button").addEventListener("click", (e)=>{
+    getAllMessages()
+  })
 
   document.getElementById("title-bar").addEventListener("click", (e) => {
     getUserProfile(userdata[0]);
@@ -54,6 +58,7 @@ function getMessages(chatting_to) {
   axios.get(`api/messages/getMessages/${chatting_to}`).then((message) => {
     const messages = document.getElementById("allMessages");
     const allMessages = message.data;
+
     console.log(message.data);
 
     for (i of allMessages) {

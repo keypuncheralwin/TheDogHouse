@@ -8,8 +8,10 @@ function getMessageProfile(userdata) {
   <form id="message-form">
   <p id="title-bar">${nameOfUser}</p>
   <div id="allMessages"></div>
+  <div class="send-div">
   <input type="text" name="body" class="feedback-input-messages"required>
   <input type="submit" class="message-submit" value="SEND">
+  </div>
   </form>
   </div>
   `;
@@ -52,6 +54,19 @@ function getMessagesFromDog(chatting_to) {
     const messages = document.getElementById("allMessages");
     const allMessages = message.data;
     console.log(message.data);
+
+    if(allMessages.length===0){
+      div1=document.createElement('div')
+      div1.classList.add("outer-div-messages")
+
+      element=document.createElement('p')
+      element.textContent="You have no messages"
+      element.classList.add("no-messages");
+      div1.append(element)
+
+      messages.append(div1)
+      
+    }
 
     for (i of allMessages) {
       const div = document.createElement("div");
