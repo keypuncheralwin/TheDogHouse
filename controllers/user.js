@@ -1,17 +1,12 @@
 const express = require("express");
 const users = require("../models/users");
+const validator = require("email-validator") //used to validate email addresses
 
 const router = express.Router();
 
 
 router.post("/", (req, res) => {
     const { name, email, state_code, fact, password, passwordConfirm} = req.body
-    console.log(name)
-    console.log(email)
-    console.log(state_code)
-    console.log(fact)
-    console.log(password)
-    console.log(passwordConfirm)
 
     console.log(req.body)
 
@@ -27,13 +22,15 @@ router.post("/", (req, res) => {
     return res.status(400).json({ message: "requires a state" });
   } else if (password !== passwordConfirm) {
     return res.status(400).json({ message: "Passwords do not match" });
+  } else if (!validator.validate(email)) {
+    return res.status(400).json({ message: "Please enter a valid email address" });
   } else if (name.length < 17) {
     users
       .insertUser(name, email, state_code, fact, password)
       .then(() => {
-        res.json({ message: "all good" });
+        res.json({ message: "added user to database" });
       }).catch(err=>{
-        return res.status(400).json({ message: "Email is not unique" });
+        return res.status(400).json({ message: "failed to add user to database" });
 
       });
   }
