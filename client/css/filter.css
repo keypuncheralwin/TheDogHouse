@@ -1,11 +1,56 @@
+.filterToggle{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #CC6666;
+    border-radius: 100px;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.20em;
+    margin: 10px;
+    box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
+    width: fit-content;
+}
+
+.filterToggle:hover{
+    background: #cc6666c7;
+    color: white;
+    cursor: pointer;
+}
+
+#filterIconContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+#filterIconText{
+    margin-left: 10px;
+}
+
+
 
 .filterContainer{
+    display: none;
     text-align: center;
     margin: 10px 6px 2px 6px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
+}
 
+.showFilters{
+    display: flex;
+}
+
+.showFiltersOpacity{
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+    -webkit-transition: opacity 0.3s ease;
 }
 
 
@@ -90,11 +135,6 @@
   
 
 @media(max-width: 800px) {
-    .filterContainer{
-        display: flex;
-    justify-content: center;
-
-    }
 
     #maxPrice{
         width: fit-content;
