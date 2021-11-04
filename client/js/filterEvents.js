@@ -53,17 +53,3 @@ function filterEvent(element, filter1, filter2, filter3, filter4, filter5, filte
 }
 
 
-//non function method (old)
-
-// breed.addEventListener('change', e => {
-//     allDogsContainer.innerHTML = ''
-
-//     console.log(breed.value, gender.value, state_code.value)
-
-//     const filteredArray = checkFilters(age, breed, gender, state_code, dogs)
-
-//     filteredArray.forEach(dog => {
-//         guestAllDogs(dog, allDogsContainer, favAlertContainer, favAlertText)
-//     })
-
-// })

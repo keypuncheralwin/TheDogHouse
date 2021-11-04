@@ -54,9 +54,23 @@ function viewAllDogs() {
       
     
     `
+   
+    container.append(filterContainer)
+
+    //filter toggle to show/hide filters
+    const filterToggle = document.createElement('div')
+    filterToggle.classList.add('filterToggle')
+    filterToggle.innerHTML = `<div id="filterIconContainer"><div id="filterIcon"><i class="fas fa-filter"></i></div><div id="filterIconText">Filters</div></div>`
+    filterContainer.before(filterToggle)
+
+    filterToggle.addEventListener('click', e =>{
+        filterContainer.classList.toggle('showFilters')
+        setTimeout(function () {
+            filterContainer.classList.toggle('showFiltersOpacity');
+        }, 50); //giving it a delay to animnate the fade-in effect
+    })
 
     //getting all filter elements from DOM
-    container.append(filterContainer)
     const breed = document.getElementById('breedFilter')
     populateBreed(breed)
     const age = document.getElementById('ageFilter')
