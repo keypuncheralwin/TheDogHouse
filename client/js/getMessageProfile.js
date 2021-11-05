@@ -6,6 +6,7 @@ function getAllMessagesBetweenUsers(userdata) {
 
   container.innerHTML = `<div class="blockWrapper">
   <form id="message-form">
+  
   <div id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span><div id="nameOfMessager">${nameOfUser}</div></div>
   <div id="allMessages"></div>
   <div class="send-div">
@@ -17,7 +18,7 @@ function getAllMessagesBetweenUsers(userdata) {
   `;
 
 
-  document.getElementById("back-button").addEventListener("click", (e)=>{
+  document.getElementById("back-button2").addEventListener("click", (e)=>{
     getAllMessages()
   })
 
@@ -34,7 +35,7 @@ function getAllMessagesBetweenUsers(userdata) {
     messagesForm.addEventListener("submit", (e) => {
     e.preventDefault();
     recip_Id = userdata[0].id;
-    currentTime = getFormattedDate();
+    currentTime = getTimeZoneTime()
     console.log(currentTime);
     const formData = new FormData(messagesForm);
     const data = Object.fromEntries(formData.entries());
@@ -95,10 +96,7 @@ function getMessages(chatting_to) {
 
       const timeSent = i.time;
       console.log(timeSent);
-      const formatting = timeSent.replace("T", " ");
-      const formatting2 = formatting.replace(".000Z", "");
-      const formatting3= formatting2.replace(/-/g, "/")
-      const formattedTime= formatting3.slice(5)
+      const formattedTime = getFormattedDate()
       const timestamp = document.createElement("p");
       timestamp.textContent = formattedTime;
       div.append(timestamp);
@@ -124,18 +122,22 @@ function unsendMessage(message_id, user_data){
 function getFormattedDate() {
   let current_datetime = new Date();
   let formatted_date =
-    current_datetime.getFullYear() +
-    "-" +
     (current_datetime.getMonth() + 1) +
-    "-" +
+    "/" +
     current_datetime.getDate() +
-    "T" +
+    " " +
     current_datetime.getHours() +
     ":" +
-    current_datetime.getMinutes() +
-    ":" +
-    current_datetime.getSeconds() +
-    ".000Z";
+    current_datetime.getMinutes()
   return formatted_date;
 }
+
+function getTimeZoneTime(){
+  let time_zone= new Date();
+  let timeZoned=time_zone.toISOString()
+  return timeZoned
+
+}
+
+
 
