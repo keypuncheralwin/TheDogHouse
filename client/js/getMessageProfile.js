@@ -75,16 +75,17 @@ function getMessages(chatting_to) {
 
       }else{
         div.classList.add("bubble-right")
-        const unsend=document.createElement('span')
+        const unsend=document.createElement('a')
+        unsend.setAttribute('message-id', i.id)
         unsend.textContent="delete"
         unsend.classList.add("unsend")
         unsend.addEventListener('click', (e)=>{
-          unsendMessage(i.id, userData)
+          messageID=e.target.getAttribute('message-id')
+          unsendMessage(messageID, userData)
         }
         )
 
         div.append(unsend)
-
       }
       console.log(senderId);
 
