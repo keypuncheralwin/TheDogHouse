@@ -17,23 +17,42 @@
 }
 
 
-.friend {
-  height: 70px;
-  border-bottom: 1px solid #e7ebee;
-  position: relative;
+.singleMessageContainer{
+  display: flex;
+  flex-direction: column;
   color: rgb(67, 67, 67);
 }
-.friend:hover {
+
+.messageBox{
+  width: 100%;
+  display: flex;
+  border-bottom: 1.5px solid #e7ebee;
+  cursor: pointer;
+}
+
+.messageBox:hover{
   background: #f1f4f6;
   cursor: pointer;
 }
 
-.friend img {
-  width: 40px;
-  border-radius: 50%;
-  margin: 15px;
-  float: left;
+.messageIcon{
+  grid-area: messageIcon;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  color: rgba(67, 67, 67, 0.349);
 }
+
+.messageContent{
+  padding: 10px;
+  grid-area: messageContent;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+
 
 .message-user-name {
   font-family: sans-serif;
@@ -109,40 +128,6 @@
   background: #CC4949;
 
 }
-
-/* .bubble{
-    display: block;
-    min-width: 150px;
-    padding: 8px;
-    font-size: 20px;
-    background-color: rgb(253, 253, 253);
-    border-radius: 5px;
-    margin-bottom: 20px;
-    color: black;
-    box-shadow: 0 1px 10px -3px #7b7c7c, 0 1px 5px -3px #8a8b8b;
-    float: left;
-  
-
-  } */
-
-/* .bubble-left {
-  display: block;
-  max-width: 70%;
-  min-width: 10%;
-  display: inline-block;
-  font-size: 0.85em;
-  position: relative;
-  margin: 20% 0 3% 0;
-  animation: scaler 150ms ease-out;
-  background-color: #444;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  word-wrap: break-word;
-  font-weight: 500;
-  display: block;
-} */
-
 
 .bubble-left {
   background-color: #444;

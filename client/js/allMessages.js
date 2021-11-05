@@ -12,6 +12,10 @@ function getAllMessages() {
     allMessagesHeader.innerHTML = `<div id="allMessagesText"> All Messages </div>`
     insideBox.append(allMessagesHeader)
 
+    const singleMessageContainer = document.createElement('div')
+    singleMessageContainer.classList.add("singleMessageContainer")
+    insideBox.append(singleMessageContainer)
+
     if(peopleUserIsChattingTo.length===0){
       allMessagesHeader.remove()
       
@@ -27,8 +31,6 @@ function getAllMessages() {
 
     }
 
-    // getuserDetails= `api/messages/user/${i}`
-    // getMessageDetails=`api/messages/getMessages/${i}`
 
     for (i of peopleUserIsChattingTo) {
       console.log(i);
@@ -38,47 +40,58 @@ function getAllMessages() {
       requestTwo = axios.get(getMessageDetails);
       axios.all([requestOne, requestTwo]).then(
         axios.spread((...responses) => {
-          div = document.createElement("div");
-          div.classList.add("friend")
-          var img = document.createElement('img'); 
-          img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEH6tEooi7t25bGaYJc9PYKrPBpwPjOy_nrXKHDrgeLgkoC-ZkfpI3MgcUjiL3ueZZKXA&usqp=CAU'; 
-          div.append(img)
+
+          
+
+
+          const messageBox = document.createElement("div");
+          messageBox.classList.add("messageBox")
+          singleMessageContainer.append(messageBox)
+
+          const messageIcon = document.createElement('div')
+          messageIcon.innerHTML = `<i class="fas fa-paw fa-2x"></i>`
+          messageIcon.classList.add('messageIcon')
+          messageBox.append(messageIcon)
+
 
           const usersInfo = responses[0].data;
           console.log(usersInfo)
           const arrMessages = responses[1].data;
           console.log(arrMessages)
-          div.setAttribute("userI",usersInfo[0])
+          messageBox.setAttribute("userI",usersInfo[0])
 
-          div.addEventListener('click', (event)=>{
+          messageBox.addEventListener('click', (event)=>{
             console.log(responses[0].data)
             getAllMessagesBetweenUsers(responses[0].data)
 
           }
         )
 
-          user_name = document.createElement("p");
+        const messageContent = document.createElement('div')
+        messageContent.classList.add('messageContent')
+        messageBox.append(messageContent)
+
+
+          user_name = document.createElement("div");
           user_name.classList.add("message-user-name")
           user_name.textContent = usersInfo[0].name;
-          div.append(user_name);
+          messageContent.append(user_name);
 
 
           lastItem = arrMessages.slice(-1);
-          console.log(lastItem);
-          console.log(lastItem[0]);
           lastText = document.createElement("p");
           lastText.classList.add("last-text-received")
           lastWords= lastItem[0].body
           finalExchange= lastWords.substring(0, 13);
           lastText.textContent = finalExchange;
-          div.appendChild(lastText);
+          messageContent.append(lastText);
 
        
-          insideBox.append(div)
+          
         })
       );
 
-      // console.log(val)
+      
     }
   })
 }
