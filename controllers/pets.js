@@ -53,8 +53,9 @@ router.post("/add", (req, res) => {
       console.log('dog added')
       res.json({ message: "dog added" });
     }).catch(err=>{
+      console.log(err)
       console.log('dog not added')
-      return res.status(400).json({ message: 'dog not added' });
+      return res.status(400).json({ message: `dog not added: ${err}` });
     });
   }else{return res.status(403).json({ message: "Must be logged in to add a dog" });}
   
