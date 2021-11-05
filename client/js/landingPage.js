@@ -47,7 +47,7 @@ function logoButton(){
         content.classList.remove('regularBackground')
         content.classList.add('landingBackgroud')
 
-        landingPage()
+        viewAllDogs()
 
     })
 }

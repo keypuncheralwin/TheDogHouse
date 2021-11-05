@@ -5,8 +5,16 @@ function getAllMessages() {
     const container = document.getElementById("container");
     console.log(container);
     container.innerHTML = `<div class="blockWrapper"><div id='inside-box' class="inside-box"></div></div>`;
-    insideBox=document.getElementById('inside-box')
+    const insideBox = document.getElementById('inside-box')
+
+    const allMessagesHeader = document.createElement('div')
+    allMessagesHeader.classList.add('allMessagesHeader')
+    allMessagesHeader.innerHTML = `<div id="allMessagesText"> All Messages </div>`
+    insideBox.append(allMessagesHeader)
+
     if(peopleUserIsChattingTo.length===0){
+      allMessagesHeader.remove()
+      
       div1=document.createElement('div')
       div1.classList.add("outer-div-messages")
 

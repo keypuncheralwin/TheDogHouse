@@ -1,7 +1,19 @@
 .inside-box {
-  width: 500px;
+  width: 600px;
   height: 600px;
+  background-color: rgba(255, 255, 255, 0.897);
   box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
+}
+
+.allMessagesHeader{
+  background: #cc6666;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
 }
 
 
@@ -9,6 +21,7 @@
   height: 70px;
   border-bottom: 1px solid #e7ebee;
   position: relative;
+  color: rgb(67, 67, 67);
 }
 .friend:hover {
   background: #f1f4f6;
@@ -64,6 +77,8 @@
 
 #message-form {
   padding: 0;
+  width: 600px;
+  height: 600px;
 }
 
 #allMessages {
@@ -175,21 +190,6 @@
 }
 
 
-
-@media (max-width: 600px) {
-  .inside-box {
-    width: 100vw;
-    height: 100%;
-    box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
-  }
-
-  #message-form{
-    width: 100vw;
-    margin: 0 8px;
-  }
-
-}
-
 .backButtonMessages{
   font-size: 25px;
   margin-top: 8px;
@@ -216,3 +216,17 @@
 
 }
 
+@media (max-width: 600px) {
+  .inside-box {
+    width: 100vw;
+    height: 100%;
+    box-shadow: 3px 2px 14px rgb(38 38 49 / 40%);
+  }
+
+  #message-form{
+    width: 100vw;
+    height: 100%;
+    margin: 0 8px;
+  }
+
+}

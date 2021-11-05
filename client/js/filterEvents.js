@@ -18,6 +18,8 @@ function filterEvent(element, filter1, filter2, filter3, filter4, filter5, filte
         //checking the name filter
         const finalFilteredArray = nameFilter(filter7, priceFilteredArray)
 
+        
+
 
         //Creating the results message based on the filters
         const filterContainer = document.querySelector('.filterContainer')

@@ -1,8 +1,13 @@
-.filterToggle{
-    margin: 20px;
+
+.buttonCollection{
     display: flex;
     justify-content: center;
     align-items: center;
+    width:fit-content;
+}
+
+
+.filterToggle {
     background: #CC6666;
     border-radius: 100px;
     padding: 10px 20px;
@@ -14,21 +19,19 @@
     width: fit-content;
 }
 
-.filterToggle:hover{
+.filterToggle:hover {
     background: #cc6666c7;
     color: white;
     cursor: pointer;
 }
 
-#filterIconContainer{
+#filterIconContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    
-    
+    align-items: center; 
 }
 
-#filterIconText{
+#filterIconText {
     margin-left: 10px;
 }
 
@@ -70,14 +73,14 @@
 
 }
 
+.filterAlignment{
+    margin-top: 10px;
+}
+
 .subFilterContainer{
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-
-.filterAlignment{
-    margin-top: 10px;
 }
 
 #priceFilterContainer{
@@ -103,11 +106,13 @@
 }
 
 #minPrice, #maxPrice, #dogName{
-    width: fit-content;
+    height: 35px;
     border: 5px solid white;
     background-color: white;
     box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
     border-radius: 100px 100px;
+    width: 100%;
+    line-height: 4em;
     margin: 0 2px;
 
 }
@@ -128,7 +133,6 @@
     width: 100%;
     line-height: 4em;
     margin: 0 2px;
-
     
 }
  
@@ -136,8 +140,32 @@
 
 @media(max-width: 800px) {
 
-    #maxPrice{
-        width: fit-content;
+    .subFilterContainer{
+        flex-direction: column;
+    }
+
+    #priceFilterContainer{
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .filter-dropdown{
+        width: 95vw;
+        margin: 4px;
+    }
+
+    #dogStateFilter{
+        width: 95vw;
+    }
+
+    .filterAlignment{
+        margin-top: 0;
+    }
+
+    #minPrice, #maxPrice, #dogName{
+        width: 95vw;
+        margin: 4px;
+    
     }
 
     

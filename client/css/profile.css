@@ -24,20 +24,17 @@
 
 }
 
-#logout {
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid #cc6666;
-}
 
 .profile-button {
   margin: 2px;
-  border-radius: 8px;
-  padding: 5px;
-  border: #CC6666 2px solid;
-  box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4);
+  background: #CC6666;
+  border-radius: 100px;
+  padding: 10px 20px;
+  color: #fff;
+  box-shadow: 3px 2px 14px rgb(38, 38, 49, 0.4); 
   
 }
+
 
 .profile-button:hover {
   background: rgb(204, 102, 102, 0.6);
@@ -49,15 +46,23 @@
   
 }
 
-.profile-label {
-  font-family: "Concert One", cursive;
-  font-size: 25px;
-  margin-top: 14px;
+.profileContainer{
+  margin-top: 40px;
+  text-align: center;
+  font-size: 2em;
 }
 
-.profile-value {
-  margin-top: 5px;
+/* .profileSubContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+.profile-label {
+  text-decoration: underline;
 }
+
 
 .dog-photo {
     height: 12em;
@@ -114,6 +119,10 @@
   align-items: center;
 }
 
+#dogNameUserDog{
+  padding-left: 20px;
+}
+
 #editIcon{
   margin: 10px;
 }
@@ -130,7 +139,7 @@
   }
   .block {
     box-shadow: none;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     grid-template-rows: 0.2fr 1fr;
   }
@@ -145,4 +154,14 @@
   .menu-bar {
   flex-direction: column;
   }
+
+  .sub-menu{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-button{
+    width: 100%;
+  }
+
 }
