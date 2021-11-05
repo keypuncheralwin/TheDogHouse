@@ -59,11 +59,6 @@
 } */
 
 
-.profile-label {
-  text-decoration: underline;
-}
-
-
 .dog-photo {
     height: 12em;
     width: 100%;
@@ -130,6 +125,51 @@
 #userFavIcon{
   margin: 10px;
   color: orange;
+}
+
+.profile-value-not-main{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 12px;
+}
+
+.profile-image-container{
+  font-size: 70px;
+  color: #CC6666 ;
+  padding-bottom: 18px;
+}
+
+.profile-value-main{
+  color: #CC6666 ;
+  font-size:32px;
+}
+
+#edit-info{
+  font-size: 20px;
+  text-decoration: underline;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #CC6666 ;
+}
+
+#edit-info:hover{
+  color: #fa5757;
+  cursor: pointer;
+
+}
+
+.profile-container{
+  margin-top: 40px;
+  text-align: center;
+  font-size: 2em;
+
+}
+
+.profile-value-not-main-breed{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 12px;
+  position: relative;
+
 }
 
 @media (max-width: 800px) {

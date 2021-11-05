@@ -30,24 +30,20 @@ function accountForm() {
         </div>
         <div class="view-bar" id="view-bar">
 
-        <div class="profileContainer">
+        <div class="profile-container">
         <div class="profileSubContainer">
-        <button id="edit-info">Edit</button>
-        <p class="profile-label">Name</p>
-        <p class="profile-value">${name}</p>
+        <p class="profile-image-container"><i class="fas fa-id-card-alt"></i></p>
         </div>
         <div class="profileSubContainer">
-        <p class="profile-label">Email</p>
-        <p class="profile-value">${email}</p>
+        <p class="profile-value-main">${name} | ${state}</p>
         </div>
         <div class="profileSubContainer">
-        <p class="profile-label">State</p>
-        <p class="profile-value">${state}</p>
+        <p class="profile-value-not-main">${email}</p>
         </div>
         <div class="profileSubContainer">
-        <p class="profile-label">Your Favourite Breed</p>
-        <p class="profile-value">${fact}</p>
+        <p class="profile-value-not-main">Your Favourite Breed: ${fact}</p>
         </div>
+        <div id="edit-info"><a>Edit</a></div>
         </div>
      
         </div>
