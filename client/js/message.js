@@ -1,5 +1,5 @@
 function getMessageProfile(userdata) {
-  console.log(userdata[0]);
+  console.log(userdata);
   nameOfUser = userdata[0].name;
   const container = document.getElementById("container");
   console.log(container);
@@ -22,14 +22,14 @@ function getMessageProfile(userdata) {
 
 
 
-  getMessagesFromDog(userdata[0].user_id);
+  getMessagesFromDog(userdata);
 
   messagesForm=document.getElementById("message-form")
 
     messagesForm.addEventListener("submit", (e) => {
     e.preventDefault();
     recip_Id = userdata[0].user_id;
-    currentTime = getFormattedDate();
+    currentTime = getTimeZoneTime()
     console.log(currentTime);
     const formData = new FormData(messagesForm);
     const data = Object.fromEntries(formData.entries());
@@ -50,7 +50,10 @@ function insertMessagesFromDog(body, recipId, time, userdata) {
 }
 
 function getMessagesFromDog(chatting_to) {
-  axios.get(`api/messages/getMessages/${chatting_to}`).then((message) => {
+  console.log(chatting_to)
+  userData=chatting_to
+  id=chatting_to[0].user_id
+  axios.get(`api/messages/getMessages/${id}`).then((message) => {
     const messages = document.getElementById("allMessages");
     const allMessages = message.data;
     console.log(message.data);
@@ -67,8 +70,13 @@ function getMessagesFromDog(chatting_to) {
       messages.append(div1)
       
     }
+    allMessages.forEach(element => {
+      console.log(element)
 
+      
+    });
     for (i of allMessages) {
+      console.log(i)
       const div = document.createElement("div");
       div.classList.add("bubble")
 
@@ -76,17 +84,21 @@ function getMessagesFromDog(chatting_to) {
       senderId = i.sender_id;
       console.log(senderId);
 
+      console.log(i.id)
+
       if(chatting_to===senderId){
         div.classList.add("bubble-left")
 
       }else{
 
         div.classList.add("bubble-right")
-        const unsend=document.createElement('span')
+        const unsend=document.createElement('a')
+        unsend.setAttribute('message-id', i.id)
         unsend.textContent="delete"
         unsend.classList.add("unsend")
         unsend.addEventListener('click', (e)=>{
-          unsendMessage(i.id, userData)
+          messageID=e.target.getAttribute('message-id')
+          unsendMessageInDog(messageID, userData)
         })
 
         div.append(unsend)
@@ -100,17 +112,6 @@ function getMessagesFromDog(chatting_to) {
       body.classList.add("text-body")
       div.append(body);
 
-
-      const timeSent = i.time;
-      console.log(timeSent);
-      const formatting = timeSent.replace("T", " ");
-      const formatting2 = formatting.replace(".000Z", "");
-      const formatting3= formatting2.replace(/-/g, "/")
-      const formattedTime= formatting3.slice(5)
-      const timestamp = document.createElement("p");
-      timestamp.textContent = formattedTime;
-      div.append(timestamp);
-
      
       messages.append(div);
     }
@@ -121,20 +122,31 @@ function getMessagesFromDog(chatting_to) {
 
 // }
 
+function unsendMessageInDog(message_id, userDataInDog){
+  console.log(userDataInDog)
+  axios.delete(`api/messages/user/${message_id}`).then((res)=>{
+    console.log("delted")
+    getMessageProfile(userDataInDog)
+
+  })
+
+}
+
 function getFormattedDate() {
   let current_datetime = new Date();
   let formatted_date =
-    current_datetime.getFullYear() +
-    "-" +
     (current_datetime.getMonth() + 1) +
-    "-" +
+    "/" +
     current_datetime.getDate() +
-    "T" +
+    " " +
     current_datetime.getHours() +
     ":" +
-    current_datetime.getMinutes() +
-    ":" +
-    current_datetime.getSeconds() +
-    ".000Z";
+    current_datetime.getMinutes()
   return formatted_date;
+}
+
+function getTimeZoneTime(){
+  let time_zone= new Date();
+  let timeZoned=time_zone.toISOString()
+  return timeZoned
 }
