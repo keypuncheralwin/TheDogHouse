@@ -36,3 +36,17 @@ CREATE TABLE messages(
     recipient_id INTEGER NOT NULL REFERENCES users(id),
     time TIMESTAMPTZ  
 );
+
+-- Sample user login
+-- email: john.doe@example.com
+-- password: dogs
+
+-- email: tony@example.com
+-- password: dogs
+
+-- email: sally@example.com
+-- password : dogs
+
+-- email: cara@example.com
+-- password: dogs
+

@@ -9,7 +9,7 @@ function getAllMessages() {
 
     const allMessagesHeader = document.createElement('div')
     allMessagesHeader.classList.add('allMessagesHeader')
-    allMessagesHeader.innerHTML = `<div id="allMessagesText"> All Messages </div>`
+    allMessagesHeader.innerHTML = `<div id="allMessagesText"> Messages </div>`
     insideBox.append(allMessagesHeader)
 
     const singleMessageContainer = document.createElement('div')
