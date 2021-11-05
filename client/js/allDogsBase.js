@@ -11,7 +11,7 @@ function viewAllDogs() {
     const filterContainer = document.createElement('div')
     filterContainer.classList.add('filterContainer')
     filterContainer.innerHTML = `
-
+    
     <div class="subFilterContainer">
     <select name="breed" id="breedFilter" class="filter-dropdown">
         <option value="">Breed</option>      
@@ -57,17 +57,28 @@ function viewAllDogs() {
    
     container.append(filterContainer)
 
+
+    const buttonCollection = document.createElement('div')
+    buttonCollection.classList.add('buttonCollection')
+    filterContainer.before(buttonCollection)
+
     //filter toggle to show/hide filters
     const filterToggle = document.createElement('div')
     filterToggle.classList.add('filterToggle')
-    filterToggle.innerHTML = `<div id="filterIconContainer"><div id="filterIcon"><i class="fas fa-filter"></i></div><div id="filterIconText">Filters</div></div>`
-    filterContainer.before(filterToggle)
+    filterToggle.innerHTML = `<div id="filterIconContainer"><div id="filterIcon"><i class="fas fa-filter"></i></div><div id="filterIconText">Filter By</div></div>`
+    buttonCollection.append(filterToggle)
+
+
 
     filterToggle.addEventListener('click', e =>{
+        
         filterContainer.classList.toggle('showFilters')
+        //giving it a delay to animnate the fade-in effect
         setTimeout(function () {
             filterContainer.classList.toggle('showFiltersOpacity');
-        }, 50); //giving it a delay to animnate the fade-in effect
+        }, 50); 
+
+
     })
 
     //getting all filter elements from DOM

@@ -12,6 +12,9 @@ function createNav() {
       const closeMenu = document.querySelector(".closeMenu");
       console.log(mainMenu)
 
+      const addDog = document.createElement("li");
+      addDog.textContent = "Add Listing";
+      mainMenu.append(addDog);
 
       const messages = document.createElement("li");
       messages.textContent = "Messages";
@@ -29,6 +32,12 @@ function createNav() {
       messages.addEventListener("click", ()=>{
         close()
         getAllMessages()
+        addPetForm();
+      })
+
+      addDog.addEventListener("click", ()=>{
+        close()
+        addPetForm();
       })
 
       openMenu.addEventListener("click", show);
@@ -61,15 +70,6 @@ function createNav() {
       const login = document.createElement("li");
       login.textContent = "Login";
       mainMenu.append(login);
-
-      // const addPet = document.createElement("li");
-      // addPet.textContent = "Add a Pet";
-      // mainMenu.append(addPet);
-
-      // addPet.addEventListener("click", (e) => {
-      //   close();
-      //   addPetForm();
-      // });
 
       signUp.addEventListener("click", (e) => {
         close();

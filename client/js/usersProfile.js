@@ -18,6 +18,7 @@ function getUserProfile(userdata) {
              </div>
           </div>
           <div class="view-bar" id="view-bar">
+          <div class="profileContainer">
           <p class="profile-label">Name</p>
           <p class="profile-value">${name}</p>
           <p class="profile-label">Email</p>
@@ -26,7 +27,7 @@ function getUserProfile(userdata) {
           <p class="profile-value">${state}</p>
           <p class="profile-label">Your Favourite Breed</p>
           <p class="profile-value">${fact}</p>
-       
+          <div class="profileContainer">
           </div>
           </div>
           </div>

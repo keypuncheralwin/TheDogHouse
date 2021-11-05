@@ -25,6 +25,7 @@ router.get("/", (req, res) => {
   });
     
   });
+ 
 
 //getting one dog by id
 router.get("/:id", (req, res) => {
