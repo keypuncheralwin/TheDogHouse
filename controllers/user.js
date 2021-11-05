@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
       .then(() => {
         res.json({ message: "added user to database" });
       }).catch(err=>{
-        return res.status(400).json({ message: "failed to add user to database" });
+        return res.status(400).json({ message: "Email address is already in use" });
 
       });
   }
