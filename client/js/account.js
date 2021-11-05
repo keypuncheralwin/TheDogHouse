@@ -32,6 +32,7 @@ function accountForm() {
 
         <div class="profileContainer">
         <div class="profileSubContainer">
+        <button id="edit-info">Edit</button>
         <p class="profile-label">Name</p>
         <p class="profile-value">${name}</p>
         </div>
@@ -53,6 +54,10 @@ function accountForm() {
         </div>
         </div>
         `;
+
+        document.getElementById("edit-info").addEventListener("click", (e) => {
+          editUserInformation(response.data)
+        });
 
     document.getElementById("add-dog").addEventListener("click", (e) => {
       addPetForm();

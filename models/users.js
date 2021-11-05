@@ -49,6 +49,13 @@ const users = {
       .query("SELECT * FROM users where email= $1", [email])
       .then((dbRes) => dbRes.rows);
   },
+
+  updatUserInformation(user_name, email, state_code, fact, id){
+    const sql = "UPDATE users SET name=$1, email=$2, state_code=$3, fact=$4 WHERE id=$5";
+    const values = [user_name, email, state_code, fact, id ];
+    return db.query(sql,values).then(() =>{console.log("succes")});
+  }
+
 };
 
 const generateHash = (password) => {
