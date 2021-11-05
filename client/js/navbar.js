@@ -26,17 +26,20 @@ function createNav() {
 
       account.addEventListener("click", (e) => {
         close();
+        backgroudChanger();
         accountForm();
       });
 
       messages.addEventListener("click", ()=>{
-        close()
+        close();
+        backgroudChanger();
         getAllMessages()
         addPetForm();
       })
 
       addDog.addEventListener("click", ()=>{
-        close()
+        close();
+        backgroudChanger();
         addPetForm();
       })
 
@@ -73,11 +76,13 @@ function createNav() {
 
       signUp.addEventListener("click", (e) => {
         close();
+        backgroudChanger();
         signUpForm();
       });
 
       login.addEventListener("click", (e) => {
         close();
+        backgroudChanger();
         loginForm();
       });
 
