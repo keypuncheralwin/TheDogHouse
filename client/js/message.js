@@ -112,14 +112,6 @@ function getMessagesFromDog(chatting_to) {
       body.classList.add("text-body")
       div.append(body);
 
-
-      const timeSent = i.time;
-      console.log(timeSent);
-      const formattedTime = getFormattedDate()
-      const timestamp = document.createElement("p");
-      timestamp.textContent = formattedTime;
-      div.append(timestamp);
-
      
       messages.append(div);
     }
