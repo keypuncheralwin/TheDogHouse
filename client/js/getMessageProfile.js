@@ -22,7 +22,8 @@ function getAllMessagesBetweenUsers(userdata) {
   })
 
   document.getElementById("title-bar").addEventListener("click", (e) => {
-    getUserProfile(userdata);
+    console.log(userdata)
+    getUserProfile(userdata[0]);
   });
 
 
