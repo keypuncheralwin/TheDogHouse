@@ -6,7 +6,7 @@ function getAllMessagesBetweenUsers(userdata) {
 
   container.innerHTML = `<div class="blockWrapper">
   <form id="message-form">
-  <p id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span>  ${nameOfUser}</p>
+  <p id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span>${nameOfUser}</p>
   <div id="allMessages"></div>
   <div class="send-div">
   <input type="text" name="body" class="feedback-input-messages"required>
@@ -14,20 +14,20 @@ function getAllMessagesBetweenUsers(userdata) {
   </div>
   </form>
   </div>
-
   `;
+
 
   document.getElementById("back-button").addEventListener("click", (e)=>{
     getAllMessages()
   })
 
   document.getElementById("title-bar").addEventListener("click", (e) => {
-    getUserProfile(userdata[0]);
+    getUserProfile(userdata);
   });
 
 
 
-  getMessages(userdata[0].id);
+  getMessages(userdata);
 
   messagesForm=document.getElementById("message-form")
 
@@ -55,10 +55,12 @@ function insertMessages(body, recipId, time, userdata) {
 }
 
 function getMessages(chatting_to) {
-  axios.get(`api/messages/getMessages/${chatting_to}`).then((message) => {
+  console.log(chatting_to)
+  userData=chatting_to
+  id=chatting_to[0].id
+  axios.get(`api/messages/getMessages/${id}`).then((message) => {
     const messages = document.getElementById("allMessages");
     const allMessages = message.data;
-
     console.log(message.data);
 
     for (i of allMessages) {
@@ -67,12 +69,20 @@ function getMessages(chatting_to) {
 
       const sender = document.createElement("p");
       senderId = i.sender_id;
-      if(chatting_to===senderId){
+      if(id===senderId){
         div.classList.add("bubble-left")
 
       }else{
-
         div.classList.add("bubble-right")
+        const unsend=document.createElement('span')
+        unsend.textContent="delete"
+        unsend.classList.add("unsend")
+        unsend.addEventListener('click', (e)=>{
+          unsendMessage(i.id, userData)
+        }
+        )
+
+        div.append(unsend)
 
       }
       console.log(senderId);
@@ -101,6 +111,15 @@ function getMessages(chatting_to) {
 // function getUser(id){
 
 // }
+
+function unsendMessage(message_id, user_data){
+  axios.delete(`api/messages/user/${message_id}`).then((res)=>{
+    console.log("delted")
+    getAllMessagesBetweenUsers(user_data)
+
+  })
+
+}
 
 function getFormattedDate() {
   let current_datetime = new Date();

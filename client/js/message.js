@@ -82,6 +82,14 @@ function getMessagesFromDog(chatting_to) {
       }else{
 
         div.classList.add("bubble-right")
+        const unsend=document.createElement('span')
+        unsend.textContent="delete"
+        unsend.classList.add("unsend")
+        unsend.addEventListener('click', (e)=>{
+          unsendMessage(i.id, userData)
+        })
+
+        div.append(unsend)
 
       }
 

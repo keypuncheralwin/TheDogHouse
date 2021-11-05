@@ -96,12 +96,18 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+  transition: 0.3s;
 }
 
 #title-bar {
   cursor: pointer;
   padding-left: 35px;
   font-size:40px;
+}
+
+#title-bar:hover{
+  background: #CC4949;
+
 }
 
 /* .bubble{
@@ -145,7 +151,7 @@
   border-radius: 10px;
   position: relative;
   padding: 10px;
-  margin: 1% 0;
+  margin: 10px 0;
   max-width: 70%;
   min-width: 10%;  
   float: left;
@@ -164,7 +170,7 @@
   border-radius: 10px;
   position: relative;
   padding: 10px;
-  margin: 1% 0;
+  margin: 10px 0;
   max-width: 70%;
   min-width: 10%;  
   float: right;
@@ -188,6 +194,7 @@
   justify-content: center;
   align-items: center;
 }
+
 
 
 .backButtonMessages{
@@ -216,6 +223,7 @@
 
 }
 
+
 @media (max-width: 600px) {
   .inside-box {
     width: 100vw;
@@ -230,3 +238,21 @@
   }
 
 }
+
+.unsend{
+  color: grey;
+  float: right;
+  padding:4px;
+  display: block;
+  position: absolute;
+  height: 20px;
+  bottom: -20px;
+  right: 0px;
+
+}
+
+.unsend:hover{
+  cursor: pointer;
+}
+
+
