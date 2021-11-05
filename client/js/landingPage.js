@@ -26,8 +26,7 @@ function landingPage(){
 
     viewDogsButton.addEventListener('click', e => {
 
-        content.classList.remove('landingBackgroud')
-        content.classList.add('regularBackground')
+        backgroudChanger()
         viewAllDogs()
 
     })
@@ -43,11 +42,17 @@ function logoButton(){
 
     logo.addEventListener('click', e =>{
 
-        content.classList.remove('landingBackgroud')
-        content.classList.remove('regularBackground')
-        content.classList.add('landingBackgroud')
-
+        backgroudChanger()
         viewAllDogs()
 
     })
+}
+
+function backgroudChanger(){
+
+    const content = document.getElementById('content')
+
+    content.classList.remove('landingBackgroud')
+    content.classList.remove('regularBackground')
+    content.classList.add('regularBackground')
 }
