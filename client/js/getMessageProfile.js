@@ -6,7 +6,7 @@ function getAllMessagesBetweenUsers(userdata) {
 
   container.innerHTML = `<div class="blockWrapper">
   <form id="message-form">
-  <p id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span>${nameOfUser}</p>
+  <div id="title-bar"><span class="backButtonMessages" id="back-button"><i class="fas fa-arrow-left"></i></span><div id="nameOfMessager">${nameOfUser}</div></div>
   <div id="allMessages"></div>
   <div class="send-div">
   <input type="text" name="body" class="feedback-input-messages"required>
@@ -21,8 +21,7 @@ function getAllMessagesBetweenUsers(userdata) {
     getAllMessages()
   })
 
-  document.getElementById("title-bar").addEventListener("click", (e) => {
-    console.log(userdata)
+  document.getElementById("nameOfMessager").addEventListener("click", (e) => {
     getUserProfile(userdata[0]);
   });
 
