@@ -34,7 +34,6 @@ function createNav() {
         close();
         backgroudChanger();
         getAllMessages()
-        addPetForm();
       })
 
       addDog.addEventListener("click", ()=>{
