@@ -9,37 +9,44 @@ function getUserProfile(userdata) {
   
       container.innerHTML = `
       <div class="blockWrapper">
-          <div class="block">
-          
-          <div class="menu-bar">
-             <div class="profile-button" id="profile-page">Profile</div>
-            <div class="sub-menu">
-            <div class="profile-button" id="userDogs">Their Dogs</div>
-             </div>
-          </div>
-          <div class="view-bar" id="view-bar">
-          <div class="profileContainer">
-          <p class="profile-label">Name</p>
-          <p class="profile-value">${name}</p>
-          <p class="profile-label">Email</p>
-          <p class="profile-value">${email}</p>
-          <p class="profile-label">State</p>
-          <p class="profile-value">${state}</p>
-          <p class="profile-label">Your Favourite Breed</p>
-          <p class="profile-value">${fact}</p>
-          <div class="profileContainer">
-          </div>
-          </div>
-          </div>
+      <div class="block">
+      
+      <div class="menu-bar">
+        <div class="sub-menu">
+        <div class="profile-button" id="profile-page-user">Profile</div>
+        <div class="profile-button" id="user-dogs">Their Dogs</div>
+        </div>
+      </div>
+      <div class="view-bar" id="view-bar">
+
+      <div class="profile-container">
+      <div class="profileSubContainer">
+      <p class="profile-image-container"><i class="fas fa-id-card-alt"></i></p>
+      </div>
+      <div class="profileSubContainer">
+      <p class="profile-value-main">${name} | ${state}</p>
+      </div>
+      <div class="profileSubContainer">
+      <p class="profile-value-not-main">${email}</p>
+      </div>
+      <div class="profileSubContainer">
+      <p class="profile-value-not-main">Your Favourite Breed: ${fact}</p>
+      </div>
+      <div id="edit-info"><a>Edit</a></div>
+      </div>
+   
+      </div>
+      </div>
+      </div>
           `;
   
 
   
-      document.getElementById("userDogs").addEventListener("click", (e) => {
+      document.getElementById("user-dogs").addEventListener("click", (e) => {
         getOtherUsersDog(userdata)
       });
   
-      document.getElementById("profile-page").addEventListener("click", (e)=>{
+      document.getElementById("profile-page-user").addEventListener("click", (e)=>{
         getUserProfile(userdata)
       })
   
