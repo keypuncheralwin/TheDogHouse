@@ -58,4 +58,11 @@ router.get("/getAllMessages", (req, res)=>{
 
 })
 
+router.delete("/user/:message_id", (req, res) => {
+  message_id=req.params.message_id
+  Messages.deleteMessage(message_id).then(()=>{
+      res.json({message: "messsage was deleted"});
+  })
+});
+
 module.exports = router;

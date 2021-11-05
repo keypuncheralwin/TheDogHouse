@@ -26,6 +26,12 @@ const Messages = {
         return db
           .query("SELECT * FROM messages WHERE sender_id= $1 OR recipient_id=$1 ORDER BY time DESC", [id])
           .then((dbRes) => dbRes.rows);
+      },
+
+      deleteMessage(id){
+        const sql = "DElETE FROM messages WHERE id=$1";
+      const values = [id];
+      return db.query(sql,values).then((dbRes) => console.log("success"));
       }
   };
 
