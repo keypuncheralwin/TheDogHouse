@@ -22,6 +22,7 @@
   border-bottom: 1px solid #e7ebee;
   position: relative;
   color: rgb(67, 67, 67);
+  position:relative;
 }
 .friend:hover {
   background: #f1f4f6;
@@ -40,6 +41,8 @@
   font-size: 19px;
   padding-top: 10px;
   font-weight: 600;
+  position: absolute;
+  left: 80px;
 }
 
 .message-submit {
@@ -253,6 +256,19 @@
 
 .unsend:hover{
   cursor: pointer;
+}
+
+.paw-icon{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-size: 50px;
+}
+
+.last-text-received{
+  position: absolute;
+  top: 38px;
+  left: 82px
 }
 
 

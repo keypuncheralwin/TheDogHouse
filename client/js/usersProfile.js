@@ -30,9 +30,8 @@ function getUserProfile(userdata) {
       <p class="profile-value-not-main">${email}</p>
       </div>
       <div class="profileSubContainer">
-      <p class="profile-value-not-main">Your Favourite Breed: ${fact}</p>
+      <p class="profile-value-not-main">Their Favourite Breed: ${fact}</p>
       </div>
-      <div id="edit-info"><a>Edit</a></div>
       </div>
    
       </div>

@@ -9,7 +9,7 @@ function getAllMessages() {
 
     const allMessagesHeader = document.createElement('div')
     allMessagesHeader.classList.add('allMessagesHeader')
-    allMessagesHeader.innerHTML = `<div id="allMessagesText"> All Messages </div>`
+    allMessagesHeader.innerHTML = `<div id="allMessagesText"> Messages </div>`
     insideBox.append(allMessagesHeader)
 
     if(peopleUserIsChattingTo.length===0){
@@ -40,9 +40,10 @@ function getAllMessages() {
         axios.spread((...responses) => {
           div = document.createElement("div");
           div.classList.add("friend")
-          var img = document.createElement('img'); 
-          img.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEH6tEooi7t25bGaYJc9PYKrPBpwPjOy_nrXKHDrgeLgkoC-ZkfpI3MgcUjiL3ueZZKXA&usqp=CAU'; 
-          div.append(img)
+          var p = document.createElement('div')
+          p.classList.add("paw-icon")
+          p.innerHTML = `<i class="fas fa-paw"></i>`
+          div.append(p)
 
           const usersInfo = responses[0].data;
           console.log(usersInfo)
