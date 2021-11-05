@@ -3,6 +3,8 @@ function getProfilePage() {
   
 
   viewBar=document.getElementById("view-bar")
+  viewBar.classList.remove("view-bar-user-dogs")
+  viewBar.classList.add("view-bar")
   viewBar.innerHTML="";
 
   axios.get(`/api/sessions`).then((response) => {
@@ -14,19 +16,33 @@ function getProfilePage() {
     const fact = response.data[0].fact;
 
     div.innerHTML= `
+
     <div class="profileContainer">
+    <div class="profileSubContainer">
+    <button id="edit-info">Edit</button>
     <p class="profile-label">Name</p>
     <p class="profile-value">${name}</p>
+    </div>
+    <div class="profileSubContainer">
     <p class="profile-label">Email</p>
     <p class="profile-value">${email}</p>
+    </div>
+    <div class="profileSubContainer">
     <p class="profile-label">State</p>
     <p class="profile-value">${state}</p>
+    </div>
+    <div class="profileSubContainer">
     <p class="profile-label">Your Favourite Breed</p>
     <p class="profile-value">${fact}</p>
+    </div>
     </div>
     
     `
 
     viewBar.append(div)
+
+    document.getElementById("edit-info").addEventListener("click", (e) => {
+      editUserInformation(response.data)
+    });
   });
 }
