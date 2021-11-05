@@ -18,7 +18,7 @@ function getAllMessagesBetweenUsers(userdata) {
   `;
 
 
-  document.getElementById("back-button2").addEventListener("click", (e)=>{
+  document.getElementById("back-button").addEventListener("click", (e)=>{
     getAllMessages()
   })
 
