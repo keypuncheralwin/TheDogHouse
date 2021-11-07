@@ -5,8 +5,8 @@ Online dog adoption marketplace. Looking for a doggies? or hoping to find a lovi
 
 ## Features
 
-- login and signup
-- Add a listing for you dog, upload images and other useful infomation to increase interest for your listing
+- login and signup to keep track of dog listings
+- Add a listing for your dog, upload images and other useful infomation to increase interest for your listing
 - favourite dog listings and keep track these listings via the personalised dashboard 
 - update/edit profile information
 - directly message other users - showing your interest in their listings/ you can also delete messages
