@@ -1,7 +1,7 @@
 # TheDogHouse
 [Live Website](http://the-dog-house-agll.herokuapp.com/)
 
-Online dog adoption marketplace. Looking for a doggies? or hoping to find a loving home for your dog? visit TheDogHouse. Anyone can put up their dog for adoption whether you are a breeder, shelter or just someone who can no longer care for there dog.
+Online dog adoption marketplace. Looking for doggies? or hoping to find a loving home for your dog? visit TheDogHouse. Anyone can put up their dog for adoption whether you are a breeder, shelter or just someone who can no longer care for there dog.
 
 ## Features
 
