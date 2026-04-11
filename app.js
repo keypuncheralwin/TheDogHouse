@@ -1,6 +1,4 @@
 const express = require("express");
-const eiows = require("eiows");
-
 
 const dotenv = require('dotenv')
 dotenv.config();
@@ -19,9 +17,6 @@ const messagesController= require("./controllers/messages");
 
 const errorHandler = require('./middleware/error')
 const logMiddleware = require('./middleware/logger');
-const { Server } = require("eiows");
-
-
 
 const app = express();
 

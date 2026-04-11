@@ -1,5 +1,3 @@
- createdb TheDogHouse
-
 CREATE TABLE users(
     id SERIAL PRIMARY KEY UNIQUE NOT NULL,
     name TEXT NOT NULL,
@@ -8,12 +6,6 @@ CREATE TABLE users(
     fact TEXT,
     password TEXT NOT NULL
 );
-
-CREATE TABLE favourites(
-    user_id INTEGER NOT NULL REFERENCES users(id),
-    dog_id  INTEGER NOT NULL REFERENCES dogs(id)
-);
-
 
 CREATE TABLE dogs(
     id SERIAL PRIMARY KEY UNIQUE NOT NULL,
@@ -26,6 +18,11 @@ CREATE TABLE dogs(
     image TEXT NOT NULL,
     price INTEGER NOT NULL,
     user_id INTEGER NOT NULL REFERENCES users(id)
+);
+
+CREATE TABLE favourites(
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    dog_id  INTEGER NOT NULL REFERENCES dogs(id)
 );
 
 
